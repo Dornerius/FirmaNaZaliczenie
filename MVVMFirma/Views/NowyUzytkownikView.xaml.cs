@@ -15,10 +15,12 @@ using System.Windows.Shapes;
 
 namespace MVVMFirma.Views
 {
-   
-    public partial class FakturyView : WszystkieViewBase
+    /// <summary>
+    /// Interaction logic for NowyUzytkownikView.xaml
+    /// </summary>
+    public partial class NowyUzytkownikView : UserControl
     {
-        public FakturyView()
+        public NowyUzytkownikView()
         {
             InitializeComponent();
         }

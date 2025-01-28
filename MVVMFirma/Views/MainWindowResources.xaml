@@ -3,18 +3,24 @@
                     xmlns:vm="clr-namespace:MVVMFirma.ViewModels"
                     xmlns:vw="clr-namespace:MVVMFirma.Views"
                     >
-    
-     <DataTemplate DataType="{x:Type vm:KlienciViewModel}">
-         <vw:KlienciView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:NowyKlientViewModel}">
+
+    <DataTemplate DataType="{x:Type vm:KlienciViewModel}">
+        <vw:KlienciView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyKlientViewModel}">
         <vw:NowyKlientView/>
-     </DataTemplate>    
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vm:FakturyViewModel}">
         <vw:FakturyView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:NowaFakturaViewModel}">
         <vw:NawaFakturaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:UzytkownicyViewModel}">
+        <vw:UzytkownicyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyUzytkownikViewModel}">
+        <vw:NowyUzytkownikView/>
     </DataTemplate>
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">

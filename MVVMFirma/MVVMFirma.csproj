@@ -335,12 +335,29 @@
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\InterakcjeKlientowViewModel.cs" />
+    <Compile Include="ViewModels\NowyUzytkownikViewModel.cs" />
+    <Compile Include="ViewModels\ProduktyUslugiViewModel.cs" />
+    <Compile Include="ViewModels\ProjektyViewModel.cs" />
+    <Compile Include="ViewModels\RelacjeMiedzyKlientamiViewModel.cs" />
+    <Compile Include="ViewModels\RodzajePlatnosciViewModel.cs" />
+    <Compile Include="ViewModels\StatusFakturyViewModel.cs" />
+    <Compile Include="ViewModels\StatusyViewModel.cs" />
+    <Compile Include="ViewModels\SzkoleniaViewModel.cs" />
+    <Compile Include="ViewModels\TransakcjeViewMOdel.cs" />
+    <Compile Include="ViewModels\TypyInterakcjiViewModel.cs" />
+    <Compile Include="ViewModels\UzytkownicyViewModel.cs" />
     <Compile Include="ViewModels\FakturyViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NowaFakturaViewModel.cs" />
     <Compile Include="ViewModels\NowyKlientViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\KlienciViewModel.cs" />
+    <Compile Include="ViewModels\WszystkieViewModel.cs" />
+    <Compile Include="ViewModels\ZadaniaViewModel.cs" />
+    <Compile Include="ViewModels\ZamowieniaViewModel.cs" />
+    <Compile Include="ViewModels\ZapytaniaKlientowViewModel.cs" />
+    <Compile Include="ViewModels\ZespolyViewModel.cs" />
     <Compile Include="Views\FakturyView.xaml.cs">
       <DependentUpon>FakturyView.xaml</DependentUpon>
     </Compile>
@@ -355,6 +372,12 @@
     </Compile>
     <Compile Include="Views\NowyKlientView.xaml.cs">
       <DependentUpon>NowyKlientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyUzytkownikView.xaml.cs">
+      <DependentUpon>NowyUzytkownikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UzytkownicyView.xaml.cs">
+      <DependentUpon>UzytkownicyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WszystkieViewBase.cs" />
   </ItemGroup>
@@ -417,6 +440,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NowyKlientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyUzytkownikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UzytkownicyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

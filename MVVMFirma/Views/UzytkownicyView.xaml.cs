@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMFirma.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,9 @@ using System.Windows.Shapes;
 
 namespace MVVMFirma.Views
 {
-   
-    public partial class FakturyView : WszystkieViewBase
+    public partial class UzytkownicyView : WszystkieViewBase
     {
-        public FakturyView()
+        public UzytkownicyView()
         {
             InitializeComponent();
         }

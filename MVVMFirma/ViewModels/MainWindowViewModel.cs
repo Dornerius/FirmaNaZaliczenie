@@ -44,12 +44,20 @@ namespace MVVMFirma.ViewModels
                     new BaseCommand(() => this.CreateKlient())),
 
                 new CommandViewModel(
+                    "Użytkownicy",
+                    new BaseCommand(() => this.ShowAllUzytkownicy())),
+
+                new CommandViewModel(
+                    "Nowy użytkownik",
+                    new BaseCommand(() => this.CreateUzytkownik())),
+
+                new CommandViewModel(
                     "Faktury",
                     new BaseCommand(() => this.ShowAllFaktury())),
 
                 new CommandViewModel(
                     "Nowa faktura",
-                    new BaseCommand(() => this.CreateFaktura()))
+                    new BaseCommand(() => this.CreateFaktura())),
             };
         }
         #endregion
@@ -93,6 +101,14 @@ namespace MVVMFirma.ViewModels
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
+
+        private void CreateUzytkownik()
+        {
+            NowyUzytkownikViewModel workspace = new NowyUzytkownikViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
         private void CreateFaktura()
         {
            NowaFakturaViewModel workspace = new NowaFakturaViewModel();
@@ -107,6 +123,20 @@ namespace MVVMFirma.ViewModels
             if (workspace == null)
             {
                 workspace = new KlienciViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+
+        }
+        private void ShowAllUzytkownicy()
+        {
+            UzytkownicyViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is UzytkownicyViewModel)
+                as UzytkownicyViewModel;
+            if (workspace == null)
+            {
+                workspace = new UzytkownicyViewModel();
                 this.Workspaces.Add(workspace);
             }
 

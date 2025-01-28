@@ -9,13 +9,13 @@ using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public class FakturyViewModel : WszystkieViewModel<Faktury>
+    public class RodzajePlatnosciViewModel : WszystkieViewModel<RodzajePlatnosci>
     {
 
         #region Constructor
 
-        public FakturyViewModel()
-            : base("Faktury")
+        public RodzajePlatnosciViewModel()
+            : base("Rodzaje Płatności")
         { }
 
         #endregion
@@ -23,9 +23,9 @@ namespace MVVMFirma.ViewModels
         #region Helpers
         public override void Load()
         {
-            List = new ObservableCollection<Faktury>
+            List = new ObservableCollection<RodzajePlatnosci>
                 (
-                    bazaCRMEntities.Faktury.ToList()
+                    bazaCRMEntities.RodzajePlatnosci.ToList()
                 );
         }
 

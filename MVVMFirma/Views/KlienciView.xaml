@@ -8,7 +8,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <TextBlock>Klienci</TextBlock>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Azure"/> 
+                    <Setter Property="Margin" Value="6,0,6,0" />
+                    <Setter Property="FontSize" Value="14"/>                    
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>                
+                    <DataGridTextColumn Header="Id" Binding="{Binding IdKlienta}"/>
+                <DataGridTextColumn Header="Nazwa firmy" Binding="{Binding NazwaFirmy}"/>
+                    <DataGridTextColumn Header="Osobowość prawna" Binding="{Binding OsobowoscPrawna}"/>
+                    <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}"/>
+                    <DataGridTextColumn Header="Województwo" Binding="{Binding Wojewodztwo}"/>
+                    <DataGridTextColumn Header="Kod pocztowy" Binding="{Binding KodPocztowy}"/>
+                    <DataGridTextColumn Header="Miejscowość" Binding="{Binding Miejscowosc}"/>
+                    <DataGridTextColumn Header="Ulica" Binding="{Binding Ulica}"/>
+                    <DataGridTextColumn Header="Nr budynku" Binding="{Binding NrBudynku}"/>
+                    <DataGridTextColumn Header="Nr lokalu" Binding="{Binding NrLokalu}"/>
+                    <DataGridTextColumn Header="Poczta" Binding="{Binding Poczta}"/>
+                    <DataGridTextColumn Header="Regon" Binding="{Binding Regon}"/>
+                    <DataGridTextColumn Header="NIP" Binding="{Binding Nip}"/>
+                    <DataGridTextColumn Header="KRS" Binding="{Binding Krs}"/>
+                    <DataGridTextColumn Header="Media" Binding="{Binding MediaSpolecznosciowe}"/>
+                    <DataGridTextColumn Header="Info" Binding="{Binding DodatkoweInformacje}"/>
+            </DataGrid.Columns>
+            
+        </DataGrid>
         
             
     </Grid>
