@@ -336,6 +336,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\InterakcjeKlientowViewModel.cs" />
+    <Compile Include="ViewModels\JedenViewModel.cs" />
     <Compile Include="ViewModels\NowyUzytkownikViewModel.cs" />
     <Compile Include="ViewModels\ProduktyUslugiViewModel.cs" />
     <Compile Include="ViewModels\ProjektyViewModel.cs" />
@@ -361,6 +362,7 @@
     <Compile Include="Views\FakturyView.xaml.cs">
       <DependentUpon>FakturyView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\JedenViewBase.cs" />
     <Compile Include="Views\KlienciView.xaml.cs">
       <DependentUpon>KlienciView.xaml</DependentUpon>
     </Compile>
