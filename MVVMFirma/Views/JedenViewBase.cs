@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace MVVMFirma.Views
 {
-    /// <summary>
-    /// Interaction logic for NawaFakturaView.xaml
-    /// </summary>
-    public partial class NawaFakturaView : JedenViewBase
+
+    public class JedenViewBase : UserControl
     {
-        public NawaFakturaView()
+        static JedenViewBase()
         {
-            InitializeComponent();
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(JedenViewBase), new FrameworkPropertyMetadata(typeof(JedenViewBase)));
         }
     }
 }
