@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Collections.ObjectModel;
-using MVVMFirma.Models.Entities;
-using MVVMFirma.Helper;
-using System.Windows.Input;
+using MVVMFirma.Models.Entities.EntitiesForView;
 
 namespace MVVMFirma.ViewModels
 {
-    public class FakturyViewModel : WszystkieViewModel<Faktury>
+    public class FakturyViewModel : WszystkieViewModel<FakturaForAllView>
     {
 
         #region Constructor
@@ -23,9 +18,24 @@ namespace MVVMFirma.ViewModels
         #region Helpers
         public override void Load()
         {
-            List = new ObservableCollection<Faktury>
+            List = new ObservableCollection<FakturaForAllView>
                 (
-                    bazaCRMEntities.Faktury.ToList()
+                    from faktury in bazaCRMEntities.Faktury
+                    select new FakturaForAllView
+                    {
+                        NrFaktury = faktury.NrFaktury,
+                        DataWystawienia = faktury.DataWystawienia,
+                        ProduktyUslugiNazwa = faktury.ProduktyUslugi.Nazwa,
+                        ProduktyUslugiCena = faktury.ProduktyUslugi.Cena,
+                        IloscSztuk = faktury.IloscSztuk,
+                        KwotaNetto = faktury.KwotaNetto,
+                        Podatek = faktury.Podatek,
+                        KwotaBrutto = faktury.KwotaBrutto,
+                        RodzajePlatnosciNazwaRodzajuPlatnosci = faktury.RodzajePlatnosci.NazwaRodzajuPlatnosci,
+                        KlienciNazwaFirmy = faktury.Klienci.NazwaFirmy,
+                        KlienciOsobowoscPrawna = faktury.Klienci.OsobowoscPrawna,
+                        StatusFakturyNazwaStatusu = faktury.StatusFaktury.NazwaStatusu
+                    }
                 );
         }
 

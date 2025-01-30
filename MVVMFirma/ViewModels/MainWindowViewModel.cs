@@ -58,8 +58,17 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Nowa faktura",
                     new BaseCommand(() => this.CreateFaktura())),
+                
+                new CommandViewModel(
+                    "Produkty i usługi",
+                    new BaseCommand(() => this.ShowAllProduktyUslugi())),
+
+                new CommandViewModel(
+                    "Nowy produkt usługa",
+                    new BaseCommand(() => this.CreateProduktUsluga())),
             };
         }
+
         #endregion
 
         #region Workspaces
@@ -114,13 +123,18 @@ namespace MVVMFirma.ViewModels
            NowaFakturaViewModel workspace = new NowaFakturaViewModel();
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
+        } 
+        
+        private void CreateProduktUsluga()
+        {
+            NowyProduktUslugaViewModel workspace = new NowyProduktUslugaViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
         }
+        
         private void ShowAllKlienci()
         {
-            KlienciViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is KlienciViewModel)
-                as KlienciViewModel;
-            if (workspace == null)
+            if (!(this.Workspaces.FirstOrDefault(vm => vm is KlienciViewModel) is KlienciViewModel workspace))
             {
                 workspace = new KlienciViewModel();
                 this.Workspaces.Add(workspace);
@@ -155,13 +169,26 @@ namespace MVVMFirma.ViewModels
 
             this.SetActiveWorkspace(workspace);
         }
+
+        private void ShowAllProduktyUslugi()
+        {
+            ProduktyUslugiViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is ProduktyUslugiViewModel)
+                as ProduktyUslugiViewModel;
+            if (workspace == null)
+            {
+                workspace = new ProduktyUslugiViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
         private void SetActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(this.Workspaces.Contains(workspace));
 
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);
-            if (collectionView != null)
-                collectionView.MoveCurrentTo(workspace);
+            collectionView?.MoveCurrentTo(workspace);
         }
         #endregion
     }

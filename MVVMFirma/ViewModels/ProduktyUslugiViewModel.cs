@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Collections.ObjectModel;
 using MVVMFirma.Models.Entities;
-using MVVMFirma.Helper;
-using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public class ProduktyUslugiViewModel : WszystkieViewModel <ProduktyUslugi>
+    public class ProduktyUslugiViewModel : WszystkieViewModel <ProduktyUslugi> 
     {
 
         #region Constructor
 
         public ProduktyUslugiViewModel()
-            : base("Produkty i Usługi")
-        { }
+            :base("Produkty i uslugi")
+        {}
 
         #endregion
 
@@ -25,7 +20,7 @@ namespace MVVMFirma.ViewModels
         {
             List = new ObservableCollection<ProduktyUslugi>
                 (
-                    bazaCRMEntities.ProduktyUslugi.ToList()
+                    bazaCRMEntities.ProduktyUslugi.ToList() 
                 );
         }
 

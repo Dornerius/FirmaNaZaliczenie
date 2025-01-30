@@ -12,7 +12,7 @@ namespace MVVMFirma.ViewModels
     public abstract class JedenViewModel <T> : WorkspaceViewModel
     {
         #region DB
-        private BazaCRMEntities bazaCRMEntities;
+       protected BazaCRMEntities bazaCRMEntities;
         #endregion
         #region Item
         protected T item;

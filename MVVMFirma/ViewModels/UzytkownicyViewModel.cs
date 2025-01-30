@@ -6,10 +6,11 @@ using System.Collections.ObjectModel;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Helper;
 using System.Windows.Input;
+using MVVMFirma.Models.Entities.EntitiesForView;
 
 namespace MVVMFirma.ViewModels
 {
-    public class UzytkownicyViewModel : WszystkieViewModel<Uzytkownicy>
+    public class UzytkownicyViewModel : WszystkieViewModel<UzytkownicyAllForView>
     {
 
         #region Constructor
@@ -18,16 +19,23 @@ namespace MVVMFirma.ViewModels
             : base("Użytkownicy")
         { }
 
-        #endregion
-
-        #region Helpers
-        public override void Load()
-        {
-            List = new ObservableCollection<Uzytkownicy>
+        public override void Load() => List = new ObservableCollection<UzytkownicyAllForView>
                 (
-                    bazaCRMEntities.Uzytkownicy.ToList()
+                    from uzytkownicy in bazaCRMEntities.Uzytkownicy
+                    select new UzytkownicyAllForView
+                    {
+                        Imie = uzytkownicy.Imie,
+                        Nazwisko = uzytkownicy.Nazwisko,
+                        Email = uzytkownicy.Email,
+                        Telefon = uzytkownicy.Telefon,
+                        Rola = uzytkownicy.Rola,
+                        ZespolyNazwa = uzytkownicy.Zespoly.Nazwa,
+                        ZadaniaNazwa = uzytkownicy.Zadania.NazwaZadania,
+                        ProjektyNazwa = uzytkownicy.Projekty1.NazwaProjektu,
+                        KlienciNazwaFirmy = uzytkownicy.Klienci1.NazwaFirmy,                        
+                        SzkoleniaNazwa = uzytkownicy.Szkolenia.Nazwa
+                    }
                 );
-        }
 
         #endregion
 

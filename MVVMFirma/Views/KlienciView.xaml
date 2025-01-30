@@ -7,34 +7,37 @@
              xmlns:local="clr-namespace:MVVMFirma.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
-            <DataGrid.Resources>
-                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="Azure"/> 
-                    <Setter Property="Margin" Value="6,0,6,0" />
-                    <Setter Property="FontSize" Value="14"/>                    
-                </Style>
-            </DataGrid.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Klienci" FontSize="24" FontWeight="Bold" Margin="4"/>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}">         
 
-            <DataGrid.Columns>                
-                    <DataGridTextColumn Header="Id" Binding="{Binding IdKlienta}"/>
+            <DataGrid.Columns>
                 <DataGridTextColumn Header="Nazwa firmy" Binding="{Binding NazwaFirmy}"/>
-                    <DataGridTextColumn Header="Osobowość prawna" Binding="{Binding OsobowoscPrawna}"/>
-                    <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"/>
-                    <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}"/>
-                    <DataGridTextColumn Header="Województwo" Binding="{Binding Wojewodztwo}"/>
-                    <DataGridTextColumn Header="Kod pocztowy" Binding="{Binding KodPocztowy}"/>
-                    <DataGridTextColumn Header="Miejscowość" Binding="{Binding Miejscowosc}"/>
-                    <DataGridTextColumn Header="Ulica" Binding="{Binding Ulica}"/>
-                    <DataGridTextColumn Header="Nr budynku" Binding="{Binding NrBudynku}"/>
-                    <DataGridTextColumn Header="Nr lokalu" Binding="{Binding NrLokalu}"/>
-                    <DataGridTextColumn Header="Poczta" Binding="{Binding Poczta}"/>
-                    <DataGridTextColumn Header="Regon" Binding="{Binding Regon}"/>
-                    <DataGridTextColumn Header="NIP" Binding="{Binding Nip}"/>
-                    <DataGridTextColumn Header="KRS" Binding="{Binding Krs}"/>
-                    <DataGridTextColumn Header="Media" Binding="{Binding MediaSpolecznosciowe}"/>
-                    <DataGridTextColumn Header="Info" Binding="{Binding DodatkoweInformacje}"/>
+                <DataGridTextColumn Header="Osobowość prawna" Binding="{Binding OsobowoscPrawna}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}"/>
+                <DataGridTextColumn Header="Wojewodztwo" Binding="{Binding Wojewodztwo}"/>
+                <DataGridTextColumn Header="Kod pocztowy" Binding="{Binding KodPocztowy}"/>
+                <DataGridTextColumn Header="Powiat" Binding="{Binding Powiat}"/>
+                <DataGridTextColumn Header="Miejscowość" Binding="{Binding Miejscowosc}"/>
+                <DataGridTextColumn Header="Ulica" Binding="{Binding Ulica}"/>
+                <DataGridTextColumn Header="Numer domu" Binding="{Binding NrBudynku}"/>
+                <DataGridTextColumn Header="Numer lokalu" Binding="{Binding NrLokalu}"/>
+                <DataGridTextColumn Header="NIP" Binding="{Binding Nip}"/>
+                <DataGridTextColumn Header="REGON" Binding="{Binding Regon}"/>
+                <DataGridTextColumn Header="KRS" Binding="{Binding Krs}"/>
+                <DataGridTextColumn Header="Media Społecznościowe" Binding="{Binding MediaSpolecznosciowe}"/>
+                <DataGridTextColumn Header="Dodatkowe Informacje" Binding="{Binding DodatkoweInformacje}"/>
+                <DataGridTextColumn Header="Imię pracownika" Binding="{Binding UzytkownicyImie}"/>
+                <DataGridTextColumn Header="Nazwisko pracownika" Binding="{Binding UzytkownicyNazwisko}"/>
+                <DataGridTextColumn Header="Satnowisko pracownika" Binding="{Binding UzytkownicyRola}"/>
+                <DataGridTextColumn Header="Nazwa Zespołu" Binding="{Binding ZespolyNazwa}"/>
+                <DataGridTextColumn Header="Nazwa Projektu" Binding="{Binding ProjektyNazwa}"/>
+
             </DataGrid.Columns>
             
         </DataGrid>

@@ -18,9 +18,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="Numer faktury" BorderBrush="Black" BorderThickness="2" Background="BlueViolet" FontWeight="Bold" Width="120" Height="30"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Model.NrFaktury, UpdateSourceTrigger=PropertyChanged}" Background="White" Margin="8,3,8,3" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=NrFaktury, UpdateSourceTrigger=PropertyChanged}" Background="White" Margin="8,3,8,3" />
         <Label Grid.Row="1" Grid.Column="0" Content="Data wystawienia" Background="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="120" Height="40"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Model.DataWystawienia, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=DataWystawienia, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
         <Grid Grid.Row="2" Grid.Column="0">
             <Label Grid.Row="2" Grid.Column="0" Content="Kwota Netto" Background="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="120" Height="40"/>
         </Grid>
@@ -33,15 +33,15 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Text="{Binding Path=Model.KwotaNetto, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
+            <TextBox Grid.Column="0" Text="{Binding Path=KwotaNetto, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
             <Label Grid.Column="3" Content="Kwota Brutto" Background="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="120" Height="40"/>
-            <TextBox Grid.Column="4" Text="{Binding Path=Model.KwotaBrutto, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
+            <TextBox Grid.Column="4" Text="{Binding Path=KwotaBrutto, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
             <Label Grid.Column="1" Content="Podatek" Background="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="120" Height="40"/>
-            <TextBox Grid.Column="2" Text="{Binding Path=Model.Podatek, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
+            <TextBox Grid.Column="2" Text="{Binding Path=Podatek, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
             <Label Grid.Column="5" Background="BlueViolet"/>
         </Grid>
         <Label Grid.Row="3" Grid.Column="0" Content="Ilosc Sztuk" Background="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="120" Height="40"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Model.IloscSztuk, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=IloscSztuk, UpdateSourceTrigger=PropertyChanged}" Background="AliceBlue" />
         
 
     </Grid>

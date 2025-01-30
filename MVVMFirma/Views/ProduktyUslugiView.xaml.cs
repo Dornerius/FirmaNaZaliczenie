@@ -1,9 +1,9 @@
 ﻿namespace MVVMFirma.Views
 {
 
-    public partial class KlienciView : WszystkieViewBase
+    public partial class ProduktyUslugiView : WszystkieViewBase
     {
-        public KlienciView()
+        public ProduktyUslugiView()
         {
             InitializeComponent();
         }

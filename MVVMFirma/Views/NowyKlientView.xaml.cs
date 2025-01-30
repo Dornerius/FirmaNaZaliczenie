@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,8 +15,10 @@ using System.Windows.Shapes;
 
 namespace MVVMFirma.Views
 {
-    
-    public partial class NowyKlientView : UserControl
+    /// <summary>
+    /// Interaction logic for NowyKlientView.xaml
+    /// </summary>
+    public partial class NowyKlientView : JedenViewBase
     {
         public NowyKlientView()
         {
