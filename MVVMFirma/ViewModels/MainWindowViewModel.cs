@@ -66,6 +66,10 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Nowy produkt usługa",
                     new BaseCommand(() => this.CreateProduktUsluga())),
+
+                new CommandViewModel(
+                    "Rodzaje Interakcji",
+                    new BaseCommand(() => this.ShowAllTypyInterakcji())),
             };
         }
 
@@ -178,6 +182,20 @@ namespace MVVMFirma.ViewModels
             if (workspace == null)
             {
                 workspace = new ProduktyUslugiViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllTypyInterakcji()
+        {
+            TypyInterakcjiViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is TypyInterakcjiViewModel)
+                as TypyInterakcjiViewModel;
+            if (workspace == null)
+            {
+                workspace = new TypyInterakcjiViewModel();
                 this.Workspaces.Add(workspace);
             }
 

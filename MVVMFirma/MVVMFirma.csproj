@@ -411,6 +411,9 @@
     <Compile Include="Views\ProduktyUslugiView.xaml.cs">
       <DependentUpon>ProduktyUslugiView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TypyInterakcjiView.xaml.cs">
+      <DependentUpon>TypyInterakcjiView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UzytkownicyView.xaml.cs">
       <DependentUpon>UzytkownicyView.xaml</DependentUpon>
     </Compile>
@@ -487,6 +490,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProduktyUslugiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TypyInterakcjiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
