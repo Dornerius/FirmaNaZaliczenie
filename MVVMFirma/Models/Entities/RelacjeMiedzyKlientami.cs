@@ -15,8 +15,8 @@ namespace MVVMFirma.Models.Entities
     public partial class RelacjeMiedzyKlientami
     {
         public int IdRelacjiPomiedzyKlientami { get; set; }
+        public Nullable<int> IdKlienta { get; set; }
         public Nullable<int> IdKlienta1 { get; set; }
-        public Nullable<int> IdKlienta2 { get; set; }
         public string OpisRelacji { get; set; }
     
         public virtual Klienci Klienci { get; set; }

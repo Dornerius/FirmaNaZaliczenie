@@ -70,6 +70,30 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Rodzaje Interakcji",
                     new BaseCommand(() => this.ShowAllTypyInterakcji())),
+
+                new CommandViewModel(
+                    "Projekty",
+                    new BaseCommand(() => this.ShowAllProjekty())),
+
+                 new CommandViewModel(
+                    "Statusy",
+                    new BaseCommand(() => this.ShowAllStatusy())),
+
+                  new CommandViewModel(
+                    "Relacje Między Klientami",
+                    new BaseCommand(() => this.ShowAllRelacjeMiedzyKlientami())),
+
+                  new CommandViewModel(
+                    "Rodzaje płatności",
+                    new BaseCommand(() => this.ShowAllRodzajePlatnosci())),
+
+                  new CommandViewModel(
+                    "Status Faktury",
+                    new BaseCommand(() => this.ShowAllStatusFaktury())),
+
+                  new CommandViewModel(
+                    "Szkolenia",
+                    new BaseCommand(() => this.ShowAllSzkolenia())),
             };
         }
 
@@ -186,6 +210,21 @@ namespace MVVMFirma.ViewModels
             }
 
             this.SetActiveWorkspace(workspace);
+
+        }
+
+        private void ShowAllStatusy()
+        {
+                StatusyViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is StatusyViewModel)
+                as StatusyViewModel;
+            if (workspace == null)
+            {
+                workspace = new StatusyViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
         }
 
         private void ShowAllTypyInterakcji()
@@ -196,6 +235,76 @@ namespace MVVMFirma.ViewModels
             if (workspace == null)
             {
                 workspace = new TypyInterakcjiViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllProjekty()
+        {
+            ProjektyViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is ProjektyViewModel)
+                as ProjektyViewModel;
+            if (workspace == null)
+            {
+                workspace = new ProjektyViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllRelacjeMiedzyKlientami()
+        {
+            RelacjeMiedzyKlientamiViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is RelacjeMiedzyKlientamiViewModel)
+                as RelacjeMiedzyKlientamiViewModel;
+            if (workspace == null)
+            {
+                workspace = new RelacjeMiedzyKlientamiViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllRodzajePlatnosci()
+        {
+            RodzajePlatnosciViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is RodzajePlatnosciViewModel)
+                as RodzajePlatnosciViewModel;
+            if (workspace == null)
+            {
+                workspace = new RodzajePlatnosciViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllStatusFaktury()
+        {
+            StatusFakturyViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is StatusFakturyViewModel)
+                as StatusFakturyViewModel;
+            if (workspace == null)
+            {
+                workspace = new StatusFakturyViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllSzkolenia()
+        {
+            SzkoleniaViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is SzkoleniaViewModel)
+                as SzkoleniaViewModel;
+            if (workspace == null)
+            {
+                workspace = new SzkoleniaViewModel();
                 this.Workspaces.Add(workspace);
             }
 

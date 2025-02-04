@@ -31,7 +31,24 @@
     <DataTemplate DataType="{x:Type vm:TypyInterakcjiViewModel}">
         <vw:TypyInterakcjiView/>
     </DataTemplate>
-
+    <DataTemplate DataType="{x:Type vm:ProjektyViewModel}">
+        <vw:ProjektyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:StatusyViewModel}">
+        <vw:StatusyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:RelacjeMiedzyKlientamiViewModel}">
+        <vw:RalacjeMiedzyKlientamiView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:RodzajePlatnosciViewModel}">
+        <vw:RodzajePlatnosciView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:StatusFakturyViewModel}">
+        <vw:StatusFakturyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:SzkoleniaViewModel}">
+        <vw:SzkoleniaView/>
+    </DataTemplate>
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">

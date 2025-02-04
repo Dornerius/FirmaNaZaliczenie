@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BazaCRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Faktury">
           <Key>
             <PropertyRef Name="IdFaktury" />
@@ -93,8 +93,8 @@
             <PropertyRef Name="IdRelacjiPomiedzyKlientami" />
           </Key>
           <Property Name="IdRelacjiPomiedzyKlientami" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdKlienta" Type="int" />
           <Property Name="IdKlienta1" Type="int" />
-          <Property Name="IdKlienta2" Type="int" />
           <Property Name="OpisRelacji" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="RodzajePlatnosci">
@@ -377,7 +377,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci">
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci2">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="RelacjeMiedzyKlientami">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci3">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
           <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
           <ReferentialConstraint>
@@ -386,18 +398,6 @@
             </Principal>
             <Dependent Role="RelacjeMiedzyKlientami">
               <PropertyRef Name="IdKlienta1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci1">
-          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
-          <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Klienci">
-              <PropertyRef Name="IdKlienta" />
-            </Principal>
-            <Dependent Role="RelacjeMiedzyKlientami">
-              <PropertyRef Name="IdKlienta2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -665,7 +665,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CRMModelStoreContainer">
+        <EntityContainer Name="BazaCRMModelStoreContainer">
           <EntitySet Name="Faktury" EntityType="Self.Faktury" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InterakcjeKlientow" EntityType="Self.InterakcjeKlientow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
@@ -737,11 +737,11 @@
             <End Role="Zespoly" EntitySet="Zespoly" />
             <End Role="Projekty" EntitySet="Projekty" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci" Association="Self.FK_RelacjeMiedzyKlientami_Klienci">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci2" Association="Self.FK_RelacjeMiedzyKlientami_Klienci2">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci1" Association="Self.FK_RelacjeMiedzyKlientami_Klienci1">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci3" Association="Self.FK_RelacjeMiedzyKlientami_Klienci3">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
@@ -838,7 +838,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BazaCRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Faktury">
           <Key>
             <PropertyRef Name="IdFaktury" />
@@ -902,8 +902,8 @@
           <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_Klienci_Uzytkownicy" FromRole="Klienci" ToRole="Uzytkownicy" />
           <NavigationProperty Name="Zespoly" Relationship="Self.FK_Klienci_Zespoly" FromRole="Klienci" ToRole="Zespoly" />
           <NavigationProperty Name="Projekty1" Relationship="Self.FK_Projekty_Klienci" FromRole="Klienci" ToRole="Projekty" />
-          <NavigationProperty Name="RelacjeMiedzyKlientami" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
-          <NavigationProperty Name="RelacjeMiedzyKlientami1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci1" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
+          <NavigationProperty Name="RelacjeMiedzyKlientami" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci2" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
+          <NavigationProperty Name="RelacjeMiedzyKlientami1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci3" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
           <NavigationProperty Name="Transakcje" Relationship="Self.FK_Transakcje_Klienci" FromRole="Klienci" ToRole="Transakcje" />
           <NavigationProperty Name="Uzytkownicy1" Relationship="Self.FK_Uzytkownicy_Klienci" FromRole="Klienci" ToRole="Uzytkownicy" />
           <NavigationProperty Name="ZapytaniaKlientow" Relationship="Self.FK_ZapytaniaKlientow_Klienci" FromRole="Klienci" ToRole="ZapytaniaKlientow" />
@@ -954,11 +954,11 @@
             <PropertyRef Name="IdRelacjiPomiedzyKlientami" />
           </Key>
           <Property Name="IdRelacjiPomiedzyKlientami" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdKlienta" Type="Int32" />
           <Property Name="IdKlienta1" Type="Int32" />
-          <Property Name="IdKlienta2" Type="Int32" />
           <Property Name="OpisRelacji" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Klienci" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
-          <NavigationProperty Name="Klienci1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci1" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci2" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci3" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
         </EntityType>
         <EntityType Name="RodzajePlatnosci">
           <Key>
@@ -1249,7 +1249,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci">
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci2">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="RelacjeMiedzyKlientami">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci3">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
           <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1258,18 +1270,6 @@
             </Principal>
             <Dependent Role="RelacjeMiedzyKlientami">
               <PropertyRef Name="IdKlienta1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci1">
-          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
-          <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Klienci">
-              <PropertyRef Name="IdKlienta" />
-            </Principal>
-            <Dependent Role="RelacjeMiedzyKlientami">
-              <PropertyRef Name="IdKlienta2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1633,11 +1633,11 @@
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Projekty" EntitySet="Projekty" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci" Association="Self.FK_RelacjeMiedzyKlientami_Klienci">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci2" Association="Self.FK_RelacjeMiedzyKlientami_Klienci2">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci1" Association="Self.FK_RelacjeMiedzyKlientami_Klienci1">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci3" Association="Self.FK_RelacjeMiedzyKlientami_Klienci3">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
@@ -1747,9 +1747,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CRMModelStoreContainer" CdmEntityContainer="BazaCRMEntities">
+        <EntityContainerMapping StorageEntityContainer="BazaCRMModelStoreContainer" CdmEntityContainer="BazaCRMEntities">
           <EntitySetMapping Name="Faktury">
-            <EntityTypeMapping TypeName="CRMModel.Faktury">
+            <EntityTypeMapping TypeName="BazaCRMModel.Faktury">
               <MappingFragment StoreEntitySet="Faktury">
                 <ScalarProperty Name="IdFaktury" ColumnName="IdFaktury" />
                 <ScalarProperty Name="NrFaktury" ColumnName="NrFaktury" />
@@ -1766,7 +1766,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="InterakcjeKlientow">
-            <EntityTypeMapping TypeName="CRMModel.InterakcjeKlientow">
+            <EntityTypeMapping TypeName="BazaCRMModel.InterakcjeKlientow">
               <MappingFragment StoreEntitySet="InterakcjeKlientow">
                 <ScalarProperty Name="IdInerakcji" ColumnName="IdInerakcji" />
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
@@ -1777,7 +1777,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienci">
-            <EntityTypeMapping TypeName="CRMModel.Klienci">
+            <EntityTypeMapping TypeName="BazaCRMModel.Klienci">
               <MappingFragment StoreEntitySet="Klienci">
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
                 <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
@@ -1804,7 +1804,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LogiSystemowe">
-            <EntityTypeMapping TypeName="CRMModel.LogiSystemowe">
+            <EntityTypeMapping TypeName="BazaCRMModel.LogiSystemowe">
               <MappingFragment StoreEntitySet="LogiSystemowe">
                 <ScalarProperty Name="Id_Interakcji" ColumnName="Id_Interakcji" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
@@ -1814,7 +1814,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProduktyUslugi">
-            <EntityTypeMapping TypeName="CRMModel.ProduktyUslugi">
+            <EntityTypeMapping TypeName="BazaCRMModel.ProduktyUslugi">
               <MappingFragment StoreEntitySet="ProduktyUslugi">
                 <ScalarProperty Name="IdProduktuUslugi" ColumnName="IdProduktuUslugi" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -1824,7 +1824,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Projekty">
-            <EntityTypeMapping TypeName="CRMModel.Projekty">
+            <EntityTypeMapping TypeName="BazaCRMModel.Projekty">
               <MappingFragment StoreEntitySet="Projekty">
                 <ScalarProperty Name="IdProjektu" ColumnName="IdProjektu" />
                 <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
@@ -1838,17 +1838,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RelacjeMiedzyKlientami">
-            <EntityTypeMapping TypeName="CRMModel.RelacjeMiedzyKlientami">
+            <EntityTypeMapping TypeName="BazaCRMModel.RelacjeMiedzyKlientami">
               <MappingFragment StoreEntitySet="RelacjeMiedzyKlientami">
                 <ScalarProperty Name="IdRelacjiPomiedzyKlientami" ColumnName="IdRelacjiPomiedzyKlientami" />
+                <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
                 <ScalarProperty Name="IdKlienta1" ColumnName="IdKlienta1" />
-                <ScalarProperty Name="IdKlienta2" ColumnName="IdKlienta2" />
                 <ScalarProperty Name="OpisRelacji" ColumnName="OpisRelacji" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RodzajePlatnosci">
-            <EntityTypeMapping TypeName="CRMModel.RodzajePlatnosci">
+            <EntityTypeMapping TypeName="BazaCRMModel.RodzajePlatnosci">
               <MappingFragment StoreEntitySet="RodzajePlatnosci">
                 <ScalarProperty Name="IdRodzajuPlatnosci" ColumnName="IdRodzajuPlatnosci" />
                 <ScalarProperty Name="NazwaRodzajuPlatnosci" ColumnName="NazwaRodzajuPlatnosci" />
@@ -1856,7 +1856,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StatusFaktury">
-            <EntityTypeMapping TypeName="CRMModel.StatusFaktury">
+            <EntityTypeMapping TypeName="BazaCRMModel.StatusFaktury">
               <MappingFragment StoreEntitySet="StatusFaktury">
                 <ScalarProperty Name="IdStatusuFaktury" ColumnName="IdStatusuFaktury" />
                 <ScalarProperty Name="NazwaStatusu" ColumnName="NazwaStatusu" />
@@ -1864,7 +1864,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Statusy">
-            <EntityTypeMapping TypeName="CRMModel.Statusy">
+            <EntityTypeMapping TypeName="BazaCRMModel.Statusy">
               <MappingFragment StoreEntitySet="Statusy">
                 <ScalarProperty Name="IdStatusu" ColumnName="IdStatusu" />
                 <ScalarProperty Name="NazwaStatusu" ColumnName="NazwaStatusu" />
@@ -1872,7 +1872,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CRMModel.sysdiagrams">
+            <EntityTypeMapping TypeName="BazaCRMModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1883,7 +1883,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Szkolenia">
-            <EntityTypeMapping TypeName="CRMModel.Szkolenia">
+            <EntityTypeMapping TypeName="BazaCRMModel.Szkolenia">
               <MappingFragment StoreEntitySet="Szkolenia">
                 <ScalarProperty Name="IdSzkolenia" ColumnName="IdSzkolenia" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -1894,7 +1894,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Transakcje">
-            <EntityTypeMapping TypeName="CRMModel.Transakcje">
+            <EntityTypeMapping TypeName="BazaCRMModel.Transakcje">
               <MappingFragment StoreEntitySet="Transakcje">
                 <ScalarProperty Name="IdTransakcji" ColumnName="IdTransakcji" />
                 <ScalarProperty Name="IdStatusu" ColumnName="IdStatusu" />
@@ -1907,7 +1907,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypyInterakcji">
-            <EntityTypeMapping TypeName="CRMModel.TypyInterakcji">
+            <EntityTypeMapping TypeName="BazaCRMModel.TypyInterakcji">
               <MappingFragment StoreEntitySet="TypyInterakcji">
                 <ScalarProperty Name="IdTypuInterakcji" ColumnName="IdTypuInterakcji" />
                 <ScalarProperty Name="NazwaTypuInterakcji" ColumnName="NazwaTypuInterakcji" />
@@ -1915,7 +1915,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Uzytkownicy">
-            <EntityTypeMapping TypeName="CRMModel.Uzytkownicy">
+            <EntityTypeMapping TypeName="BazaCRMModel.Uzytkownicy">
               <MappingFragment StoreEntitySet="Uzytkownicy">
                 <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
                 <ScalarProperty Name="IdProjektu" ColumnName="IdProjektu" />
@@ -1932,7 +1932,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zadania">
-            <EntityTypeMapping TypeName="CRMModel.Zadania">
+            <EntityTypeMapping TypeName="BazaCRMModel.Zadania">
               <MappingFragment StoreEntitySet="Zadania">
                 <ScalarProperty Name="IdZadania" ColumnName="IdZadania" />
                 <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
@@ -1944,7 +1944,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia">
-            <EntityTypeMapping TypeName="CRMModel.Zamowienia">
+            <EntityTypeMapping TypeName="BazaCRMModel.Zamowienia">
               <MappingFragment StoreEntitySet="Zamowienia">
                 <ScalarProperty Name="IdZamowienia" ColumnName="IdZamowienia" />
                 <ScalarProperty Name="IdStatusu" ColumnName="IdStatusu" />
@@ -1956,7 +1956,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ZapytaniaKlientow">
-            <EntityTypeMapping TypeName="CRMModel.ZapytaniaKlientow">
+            <EntityTypeMapping TypeName="BazaCRMModel.ZapytaniaKlientow">
               <MappingFragment StoreEntitySet="ZapytaniaKlientow">
                 <ScalarProperty Name="IdZapytania" ColumnName="IdZapytania" />
                 <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
@@ -1967,7 +1967,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zespoly">
-            <EntityTypeMapping TypeName="CRMModel.Zespoly">
+            <EntityTypeMapping TypeName="BazaCRMModel.Zespoly">
               <MappingFragment StoreEntitySet="Zespoly">
                 <ScalarProperty Name="IdZespolu" ColumnName="IdZespolu" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />

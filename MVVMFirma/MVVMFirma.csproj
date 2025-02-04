@@ -283,80 +283,82 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
-    <Compile Include="Models\Entities\CRMModel.Context.cs">
+    <Compile Include="Models\Entities\BazaCRMModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CRMModel.Context.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\CRMModel.cs">
+    <Compile Include="Models\Entities\BazaCRMModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\CRMModel.Designer.cs">
+    <Compile Include="Models\Entities\BazaCRMModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CRMModel.edmx</DependentUpon>
+      <DependentUpon>BazaCRMModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\EntitiesForView\FakturaForAllView.cs" />
     <Compile Include="Models\Entities\EntitiesForView\KlienciForAllView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\ProjektyForAllView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\RealcjeMiedzyKlientamiForAllView.cs" />
     <Compile Include="Models\Entities\EntitiesForView\UzytkownicyAllForView.cs" />
     <Compile Include="Models\Entities\Faktury.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\InterakcjeKlientow.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Klienci.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\LogiSystemowe.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\ProduktyUslugi.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Projekty.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\RelacjeMiedzyKlientami.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\RodzajePlatnosci.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\StatusFaktury.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Statusy.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\sysdiagrams.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Szkolenia.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Transakcje.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\TypyInterakcji.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Uzytkownicy.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Zadania.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Zamowienia.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\ZapytaniaKlientow.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Zespoly.cs">
-      <DependentUpon>CRMModel.tt</DependentUpon>
+      <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
@@ -411,6 +413,24 @@
     <Compile Include="Views\ProduktyUslugiView.xaml.cs">
       <DependentUpon>ProduktyUslugiView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProjektyView.xaml.cs">
+      <DependentUpon>ProjektyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RalacjeMiedzyKlientamiView.xaml.cs">
+      <DependentUpon>RalacjeMiedzyKlientamiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RodzajePlatnosciView.xaml.cs">
+      <DependentUpon>RodzajePlatnosciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatusFakturyView.xaml.cs">
+      <DependentUpon>StatusFakturyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatusyView.xaml.cs">
+      <DependentUpon>StatusyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SzkoleniaView.xaml.cs">
+      <DependentUpon>SzkoleniaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TypyInterakcjiView.xaml.cs">
       <DependentUpon>TypyInterakcjiView.xaml</DependentUpon>
     </Compile>
@@ -438,12 +458,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <EntityDeploy Include="Models\Entities\CRMModel.edmx">
+    <EntityDeploy Include="Models\Entities\BazaCRMModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CRMModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BazaCRMModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Entities\CRMModel.edmx.diagram">
-      <DependentUpon>CRMModel.edmx</DependentUpon>
+    <None Include="Models\Entities\BazaCRMModel.edmx.diagram">
+      <DependentUpon>BazaCRMModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -493,6 +513,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ProjektyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RalacjeMiedzyKlientamiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RodzajePlatnosciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StatusFakturyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StatusyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SzkoleniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TypyInterakcjiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -502,17 +546,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\Entities\CRMModel.Context.tt">
+    <Content Include="Models\Entities\BazaCRMModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CRMModel.Context.cs</LastGenOutput>
-      <DependentUpon>CRMModel.edmx</DependentUpon>
+      <DependentUpon>BazaCRMModel.edmx</DependentUpon>
+      <LastGenOutput>BazaCRMModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Entities\CRMModel.tt">
+    <Content Include="Models\Entities\BazaCRMModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CRMModel.edmx</DependentUpon>
-      <LastGenOutput>CRMModel.cs</LastGenOutput>
+      <DependentUpon>BazaCRMModel.edmx</DependentUpon>
+      <LastGenOutput>BazaCRMModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
