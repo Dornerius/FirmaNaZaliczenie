@@ -19,7 +19,7 @@ namespace MVVMFirma.ViewModels
                 throw new ArgumentNullException("command");
             this.DisplayName = displayName;
             this.Command = command;
-        }
+        }        
         #endregion
 
     }

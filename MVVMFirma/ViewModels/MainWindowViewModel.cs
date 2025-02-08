@@ -35,6 +35,7 @@ namespace MVVMFirma.ViewModels
         {
             return new List<CommandViewModel>
             {
+
                 new CommandViewModel(
                     "Klienci",
                     new BaseCommand(() => this.ShowAllKlienci())),
@@ -58,13 +59,13 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Nowa faktura",
                     new BaseCommand(() => this.CreateFaktura())),
-                
+
                 new CommandViewModel(
                     "Produkty i usługi",
                     new BaseCommand(() => this.ShowAllProduktyUslugi())),
 
                 new CommandViewModel(
-                    "Nowy produkt usługa",
+                    "Nowy produkt",
                     new BaseCommand(() => this.CreateProduktUsluga())),
 
                 new CommandViewModel(
@@ -80,7 +81,7 @@ namespace MVVMFirma.ViewModels
                     new BaseCommand(() => this.ShowAllStatusy())),
 
                   new CommandViewModel(
-                    "Relacje Między Klientami",
+                    "Relacje",
                     new BaseCommand(() => this.ShowAllRelacjeMiedzyKlientami())),
 
                   new CommandViewModel(

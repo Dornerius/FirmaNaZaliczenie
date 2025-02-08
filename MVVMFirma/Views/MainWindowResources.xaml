@@ -118,9 +118,28 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2,6">
-            <Button Command="{Binding Path=Command}">
-              <TextBlock Text="{Binding Path=DisplayName}" />
-            </Button>
+            <Button Command="{Binding Path=Command}"
+        Foreground="White"
+        Background="Blue"
+        Margin="2,2,2,2"
+        FontSize="12"
+        FontWeight="Bold"
+        Height="20"
+        Width="120" 
+        RenderTransformOrigin="0.5,0.5">
+    <Button.Effect>
+        <DropShadowEffect/>
+    </Button.Effect>
+    <Button.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform ScaleX="1.006"/>
+            <SkewTransform AngleX="-11.143" AngleY="-1.692"/>
+            <RotateTransform/>
+            <TranslateTransform X="2.321" Y="-1.783"/>
+        </TransformGroup>
+    </Button.RenderTransform>
+    <TextBlock Text="{Binding Path=DisplayName}" />
+</Button>
           </TextBlock>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
