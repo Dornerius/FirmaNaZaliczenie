@@ -1,4 +1,4 @@
-﻿<local:WszystkieViewBase x:Class="MVVMFirma.Views.RalacjeMiedzyKlientamiView"
+﻿<local:WszystkieViewBase x:Class="MVVMFirma.Views.ZadaniaView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,11 +17,16 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-
-                <DataGridTextColumn Header="Klient #1" Binding="{Binding KlienciNazwaFimry}"/>
-                <DataGridTextColumn Header="Klient #2" Binding="{Binding Klienci1NazwaFimry}"/>
-                <DataGridTextColumn Header="Relacja" Binding="{Binding OpisRelacji}"/>
-
+                <DataGridTextColumn Header="Id Zadania" Binding="{Binding IdZadania}"/>
+                <DataGridTextColumn Header="Nazwa Zadania" Binding="{Binding NazwaZadania}"/>
+                <DataGridTextColumn Header="Opis Zadania" Binding="{Binding OpisZadania}"/>
+                <DataGridTextColumn Header="Zespół #1" Binding="{Binding ZespolyNazwa}"/>
+                <DataGridTextColumn Header="Zespół #2" Binding="{Binding Zespoly1Nazwa}"/>
+                <DataGridTextColumn Header="Imię pracownika #1" Binding="{Binding UzytkownicyImie}"/>                
+                <DataGridTextColumn Header="Nazwisko pracownika #1" Binding="{Binding UzytkownicyNazwisko}"/>
+                <DataGridTextColumn Header="Imię pracownika #2" Binding="{Binding Uzytkownicy1Imie}"/>
+                <DataGridTextColumn Header="Nazwisko pracownika #2" Binding="{Binding Uzytkownicy1Nazwisko}"/>
+                <DataGridTextColumn Header="Status zadania" Binding="{Binding StatusyNazwaStatusu}"/>
             </DataGrid.Columns>
 
         </DataGrid>

@@ -7,10 +7,11 @@ using MVVMFirma.Models.Entities;
 using MVVMFirma.Helper;
 using System.Windows.Input;
 using MVVMFirma.Models.Entities.EntitiesForView;
+using System.Data.Entity;
 
 namespace MVVMFirma.ViewModels
 {
-    public class RelacjeMiedzyKlientamiViewModel : WszystkieViewModel<RealcjeMiedzyKlientamiForAllView>
+    public class RelacjeMiedzyKlientamiViewModel : WszystkieViewModel<RelacjeMiedzyKlientamiForAllView>
     {
 
         #region Constructor
@@ -24,13 +25,15 @@ namespace MVVMFirma.ViewModels
         #region Helpers
         public override void Load()
         {
-            List = new ObservableCollection<RealcjeMiedzyKlientamiForAllView>
+            List = new ObservableCollection<RelacjeMiedzyKlientamiForAllView>
                 (
                     from relacjeMiedzyKlientami in bazaCRMEntities.RelacjeMiedzyKlientami
-                    select new RealcjeMiedzyKlientamiForAllView
+                        .Include("Klienci")
+                        .Include("Klienci1")
+                    select new RelacjeMiedzyKlientamiForAllView
                     {
-                        KlienciNazwaKlienta = relacjeMiedzyKlientami.Klienci.NazwaFirmy,
-                        Klienci1NazwaKlienta = relacjeMiedzyKlientami.Klienci1.NazwaFirmy,
+                        KlienciNazwaFirmy = relacjeMiedzyKlientami.Klienci.NazwaFirmy,
+                        Klienci1NazwaFirmy = relacjeMiedzyKlientami.Klienci1.NazwaFirmy,
                         OpisRelacji = relacjeMiedzyKlientami.OpisRelacji
                     }
                 );

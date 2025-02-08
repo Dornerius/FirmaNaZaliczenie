@@ -1,4 +1,4 @@
-﻿<local:WszystkieViewBase x:Class="MVVMFirma.Views.RalacjeMiedzyKlientamiView"
+﻿<local:WszystkieViewBase x:Class="MVVMFirma.Views.ZapytaniaKlientowView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,11 +17,11 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-
-                <DataGridTextColumn Header="Klient #1" Binding="{Binding KlienciNazwaFimry}"/>
-                <DataGridTextColumn Header="Klient #2" Binding="{Binding Klienci1NazwaFimry}"/>
-                <DataGridTextColumn Header="Relacja" Binding="{Binding OpisRelacji}"/>
-
+                <DataGridTextColumn Header="Id Zapytania" Binding="{Binding IdZapytania}"/>
+                <DataGridTextColumn Header="Klient" Binding="{Binding KlienciNazwaFirmy}"/>
+                <DataGridTextColumn Header="Data zapytania" Binding="{Binding DataZapytania}"/>
+                <DataGridTextColumn Header="Treść Zapytania" Binding="{Binding TrescZapytania}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding StatusyNazwaStatusu}"/>
             </DataGrid.Columns>
 
         </DataGrid>

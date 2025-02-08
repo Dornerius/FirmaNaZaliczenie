@@ -302,7 +302,12 @@
     <Compile Include="Models\Entities\EntitiesForView\KlienciForAllView.cs" />
     <Compile Include="Models\Entities\EntitiesForView\ProjektyForAllView.cs" />
     <Compile Include="Models\Entities\EntitiesForView\RealcjeMiedzyKlientamiForAllView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\TransakcjeForAllView.cs" />
     <Compile Include="Models\Entities\EntitiesForView\UzytkownicyAllForView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\ZadaniaForAllView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\ZamowieniaForAllView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\ZapytaniaKlientowForAllView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\ZespolyForAllView.cs" />
     <Compile Include="Models\Entities\Faktury.cs">
       <DependentUpon>BazaCRMModel.tt</DependentUpon>
     </Compile>
@@ -374,7 +379,7 @@
     <Compile Include="ViewModels\StatusFakturyViewModel.cs" />
     <Compile Include="ViewModels\StatusyViewModel.cs" />
     <Compile Include="ViewModels\SzkoleniaViewModel.cs" />
-    <Compile Include="ViewModels\TransakcjeViewMOdel.cs" />
+    <Compile Include="ViewModels\TransakcjeViewModel.cs" />
     <Compile Include="ViewModels\TypyInterakcjiViewModel.cs" />
     <Compile Include="ViewModels\UzytkownicyViewModel.cs" />
     <Compile Include="ViewModels\FakturyViewModel.cs" />
@@ -431,6 +436,9 @@
     <Compile Include="Views\SzkoleniaView.xaml.cs">
       <DependentUpon>SzkoleniaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TransakcjeView.xaml.cs">
+      <DependentUpon>TransakcjeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TypyInterakcjiView.xaml.cs">
       <DependentUpon>TypyInterakcjiView.xaml</DependentUpon>
     </Compile>
@@ -438,6 +446,18 @@
       <DependentUpon>UzytkownicyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WszystkieViewBase.cs" />
+    <Compile Include="Views\ZadaniaView.xaml.cs">
+      <DependentUpon>ZadaniaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZamowieniaView.xaml.cs">
+      <DependentUpon>ZamowieniaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZapytaniaKlientowView.xaml.cs">
+      <DependentUpon>ZapytaniaKlientowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZespolyView.xaml.cs">
+      <DependentUpon>ZespolyView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -537,11 +557,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TransakcjeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TypyInterakcjiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UzytkownicyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZadaniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZamowieniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZapytaniaKlientowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZespolyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -49,7 +49,21 @@
     <DataTemplate DataType="{x:Type vm:SzkoleniaViewModel}">
         <vw:SzkoleniaView/>
     </DataTemplate>
-
+    <DataTemplate DataType="{x:Type vm:TransakcjeViewModel}">
+        <vw:TransakcjeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ZadaniaViewModel}">
+        <vw:ZadaniaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ZamowieniaViewModel}">
+        <vw:ZamowieniaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ZapytaniaKlientowViewModel}">
+        <vw:ZapytaniaKlientowView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ZespolyViewModel}">
+        <vw:ZespolyView/>
+    </DataTemplate>
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
             <Setter.Value>
@@ -121,11 +135,11 @@
             <Button Command="{Binding Path=Command}"
         Foreground="White"
         Background="Blue"
-        Margin="2,2,2,2"
+        Margin="0,2,0,2"
         FontSize="12"
         FontWeight="Bold"
-        Height="20"
-        Width="120" 
+        Height="25"
+        Width="135" 
         RenderTransformOrigin="0.5,0.5">
     <Button.Effect>
         <DropShadowEffect/>

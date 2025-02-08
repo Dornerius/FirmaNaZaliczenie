@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.Models.Entities.EntitiesForView
 {
-    public class RealcjeMiedzyKlientamiForAllView
+    public class RelacjeMiedzyKlientamiForAllView
+
     {
-        public string KlienciNazwaKlienta { get; set; }
-        public string Klienci1NazwaKlienta { get; set; }
+        public string KlienciNazwaFirmy { get; set; }
+        public string Klienci1NazwaFirmy { get; set; }
         public string OpisRelacji { get; set; }
 
     }

@@ -6,10 +6,11 @@ using System.Collections.ObjectModel;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Helper;
 using System.Windows.Input;
+using MVVMFirma.Models.Entities.EntitiesForView;
 
 namespace MVVMFirma.ViewModels
 {
-    public class TransakcjeViewModel : WszystkieViewModel<Transakcje>
+    public class TransakcjeViewModel : WszystkieViewModel<TransakcjeForAllView>
     {
 
         #region Constructor
@@ -23,9 +24,20 @@ namespace MVVMFirma.ViewModels
         #region Helpers
         public override void Load()
         {
-            List = new ObservableCollection<Transakcje>
+            List = new ObservableCollection<TransakcjeForAllView>
                 (
-                    bazaCRMEntities.Transakcje.ToList()
+                    from transakcje in bazaCRMEntities.Transakcje
+                    select new TransakcjeForAllView
+                    {
+                        IdTransakcji = transakcje.IdTransakcji,
+                        StatusyNazwaStatusu = transakcje.Statusy.NazwaStatusu,
+                        KlienciNazwaFirmy = transakcje.Klienci.NazwaFirmy,
+                        RodzajTransakcji = transakcje.RodzajTransakcji,
+                        DataTransakcji = transakcje.DataTransakcji,
+                        KwotaTransakcji = transakcje.KwotaTransakcji,
+                        DodatkoweInformacje = transakcje.DodatkoweInformacje
+                    }
+
                 );
         }
 

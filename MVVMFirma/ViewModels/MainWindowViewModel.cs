@@ -44,6 +44,10 @@ namespace MVVMFirma.ViewModels
                     "Nowy klient",
                     new BaseCommand(() => this.CreateKlient())),
 
+                 new CommandViewModel(
+                    "Zapytania Klientó",
+                    new BaseCommand(() => this.ShowAllZapytaniaKlientow())),
+
                 new CommandViewModel(
                     "Użytkownicy",
                     new BaseCommand(() => this.ShowAllUzytkownicy())),
@@ -95,6 +99,21 @@ namespace MVVMFirma.ViewModels
                   new CommandViewModel(
                     "Szkolenia",
                     new BaseCommand(() => this.ShowAllSzkolenia())),
+
+                  new CommandViewModel(
+                    "Transakcje",
+                    new BaseCommand(() => this.ShowAllTransakcje())),
+
+                  new CommandViewModel(
+                    "Zadania",
+                    new BaseCommand(() => this.ShowAllZadania())),
+
+                   new CommandViewModel(
+                    "Zamówienia",
+                    new BaseCommand(() => this.ShowAllZamowienia())),
+                   new CommandViewModel(
+                    "Zespoły",
+                    new BaseCommand(() => this.ShowAllZespoly())),
             };
         }
 
@@ -306,6 +325,74 @@ namespace MVVMFirma.ViewModels
             if (workspace == null)
             {
                 workspace = new SzkoleniaViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllTransakcje()
+        {
+            TransakcjeViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is TransakcjeViewModel)
+                as TransakcjeViewModel;
+            if (workspace == null)
+            {
+                workspace = new TransakcjeViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+        private void ShowAllZadania()
+        {
+            ZadaniaViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is ZadaniaViewModel)
+                as ZadaniaViewModel;
+            if (workspace == null)
+            {
+                workspace = new ZadaniaViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+        private void ShowAllZamowienia()
+        {
+            ZamowieniaViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is ZamowieniaViewModel)
+                as ZamowieniaViewModel;
+            if (workspace == null)
+            {
+                workspace = new ZamowieniaViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllZapytaniaKlientow()
+        {
+            ZapytaniaKlientowViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is ZapytaniaKlientowViewModel)
+                as ZapytaniaKlientowViewModel;
+            if (workspace == null)
+            {
+                workspace = new ZapytaniaKlientowViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllZespoly()
+        {
+            ZespolyViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is ZespolyViewModel)
+                as ZespolyViewModel;
+            if (workspace == null)
+            {
+                workspace = new ZespolyViewModel();
                 this.Workspaces.Add(workspace);
             }
 

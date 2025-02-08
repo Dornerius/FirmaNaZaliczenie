@@ -1,4 +1,4 @@
-﻿<local:WszystkieViewBase x:Class="MVVMFirma.Views.RalacjeMiedzyKlientamiView"
+﻿<local:WszystkieViewBase x:Class="MVVMFirma.Views.ZamowieniaView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,25 +6,26 @@
              xmlns:local="clr-namespace:MVVMFirma.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid >
+    <Grid Background="White">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#bdc3c7"/>
+                    <Setter Property="Background" Value="Azure"/>
                     <Setter Property="Margin" Value="6,0,6,0" />
                     <Setter Property="FontSize" Value="14"/>
                 </Style>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-
-                <DataGridTextColumn Header="Klient #1" Binding="{Binding KlienciNazwaFimry}"/>
-                <DataGridTextColumn Header="Klient #2" Binding="{Binding Klienci1NazwaFimry}"/>
-                <DataGridTextColumn Header="Relacja" Binding="{Binding OpisRelacji}"/>
-
+                <DataGridTextColumn Header="Status Zamowienia" Binding="{Binding StatusNazwaStatusu}"/>
+                <DataGridTextColumn Header="Data Zamowienia" Binding="{Binding DataZamowienia}"/>
+                <DataGridTextColumn Header="Kwota" Binding="{Binding Kwota}"/>
+                <DataGridTextColumn Header="Nazwa Produktu" Binding="{Binding PorduktyUslugiNazwa}"/>
+                <DataGridTextColumn Header="Ilość sztuk" Binding="{Binding PorduktyUslugiNazwa}"/>
             </DataGrid.Columns>
 
         </DataGrid>
+
 
     </Grid>
 </local:WszystkieViewBase>
