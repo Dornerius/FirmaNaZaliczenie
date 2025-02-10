@@ -33,11 +33,8 @@ namespace MVVMFirma.ViewModels
                         NazwaZadania = zadania.NazwaZadania,
                         OpisZadania = zadania.OpicZadania,
                         ZespolyNazwa = zadania.Zespoly.Nazwa,
-                        Zespoly1Nazwa = zadania.Zespoly.Nazwa,
-                        UzytkownicyImie = zadania.Uzytkownicy.Imie,
-                        UzytkownicyNazwisko = zadania.Uzytkownicy.Nazwisko,
-                        Uzytkownicy1Imie = zadania.Uzytkownicy.Nazwisko,
-                        Uzytkownicy1Nazwisko = zadania.Uzytkownicy.Nazwisko,
+                        UzytkownicyImie = zadania.Uzytkownicy1.Imie,
+                        UzytkownicyNazwisko = zadania.Uzytkownicy1.Nazwisko,
                         StatusyNazwaStatusu = zadania.Statusy.NazwaStatusu
                     }
                 );

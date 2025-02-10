@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BazaCRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BazaCRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Faktury">
           <Key>
             <PropertyRef Name="IdFaktury" />
@@ -377,7 +377,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci2">
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
           <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
           <ReferentialConstraint>
@@ -389,7 +389,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci3">
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci1">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
           <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
           <ReferentialConstraint>
@@ -581,6 +581,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Zespoly_Klienci1">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="1" />
+          <End Role="Zespoly" Type="Self.Zespoly" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Zespoly">
+              <PropertyRef Name="IdZespolu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Zespoly_Projekty">
           <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1" />
           <End Role="Zespoly" Type="Self.Zespoly" Multiplicity="*" />
@@ -601,7 +613,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika1" />
+              <PropertyRef Name="IdUzytkownikaLider" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -613,7 +625,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika2" />
+              <PropertyRef Name="IdUzytkownika1" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -625,7 +637,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika3" />
+              <PropertyRef Name="IdUzytkownika2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -637,7 +649,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika4" />
+              <PropertyRef Name="IdUzytkownika3" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -649,7 +661,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownikaLider" />
+              <PropertyRef Name="IdUzytkownika4" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -737,11 +749,11 @@
             <End Role="Zespoly" EntitySet="Zespoly" />
             <End Role="Projekty" EntitySet="Projekty" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci2" Association="Self.FK_RelacjeMiedzyKlientami_Klienci2">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci" Association="Self.FK_RelacjeMiedzyKlientami_Klienci">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci3" Association="Self.FK_RelacjeMiedzyKlientami_Klienci3">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci1" Association="Self.FK_RelacjeMiedzyKlientami_Klienci1">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
@@ -805,6 +817,10 @@
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Zespoly" EntitySet="Zespoly" />
           </AssociationSet>
+          <AssociationSet Name="FK_Zespoly_Klienci1" Association="Self.FK_Zespoly_Klienci1">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Zespoly" EntitySet="Zespoly" />
+          </AssociationSet>
           <AssociationSet Name="FK_Zespoly_Projekty" Association="Self.FK_Zespoly_Projekty">
             <End Role="Projekty" EntitySet="Projekty" />
             <End Role="Zespoly" EntitySet="Zespoly" />
@@ -834,8 +850,7 @@
             <End Role="Zespoly" EntitySet="Zespoly" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BazaCRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -900,14 +915,15 @@
           <NavigationProperty Name="InterakcjeKlientow" Relationship="Self.FK_InterakcjeKlientow_Klienci" FromRole="Klienci" ToRole="InterakcjeKlientow" />
           <NavigationProperty Name="Projekty" Relationship="Self.FK_Klienci_Projekty" FromRole="Klienci" ToRole="Projekty" />
           <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_Klienci_Uzytkownicy" FromRole="Klienci" ToRole="Uzytkownicy" />
-          <NavigationProperty Name="Zespoly" Relationship="Self.FK_Klienci_Zespoly" FromRole="Klienci" ToRole="Zespoly" />
           <NavigationProperty Name="Projekty1" Relationship="Self.FK_Projekty_Klienci" FromRole="Klienci" ToRole="Projekty" />
-          <NavigationProperty Name="RelacjeMiedzyKlientami" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci2" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
-          <NavigationProperty Name="RelacjeMiedzyKlientami1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci3" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
+          <NavigationProperty Name="RelacjeMiedzyKlientami" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
+          <NavigationProperty Name="RelacjeMiedzyKlientami1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci1" FromRole="Klienci" ToRole="RelacjeMiedzyKlientami" />
           <NavigationProperty Name="Transakcje" Relationship="Self.FK_Transakcje_Klienci" FromRole="Klienci" ToRole="Transakcje" />
           <NavigationProperty Name="Uzytkownicy1" Relationship="Self.FK_Uzytkownicy_Klienci" FromRole="Klienci" ToRole="Uzytkownicy" />
           <NavigationProperty Name="ZapytaniaKlientow" Relationship="Self.FK_ZapytaniaKlientow_Klienci" FromRole="Klienci" ToRole="ZapytaniaKlientow" />
-          <NavigationProperty Name="Zespoly1" Relationship="Self.FK_Zespoly_Klienci" FromRole="Klienci" ToRole="Zespoly" />
+          <NavigationProperty Name="Zespoly" Relationship="Self.FK_Zespoly_Klienci" FromRole="Klienci" ToRole="Zespoly" />
+          <NavigationProperty Name="Zespoly1" Relationship="BazaCRMModel.FK_Klienci_Zespoly" FromRole="Klienci" ToRole="Zespoly" />
+          <NavigationProperty Name="Zespoly2" Relationship="BazaCRMModel.FK_Zespoly_Klienci1" FromRole="Klienci" ToRole="Zespoly" />
         </EntityType>
         <EntityType Name="LogiSystemowe">
           <Key>
@@ -957,8 +973,8 @@
           <Property Name="IdKlienta" Type="Int32" />
           <Property Name="IdKlienta1" Type="Int32" />
           <Property Name="OpisRelacji" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Klienci" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci2" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
-          <NavigationProperty Name="Klienci1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci3" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci1" Relationship="Self.FK_RelacjeMiedzyKlientami_Klienci1" FromRole="RelacjeMiedzyKlientami" ToRole="Klienci" />
         </EntityType>
         <EntityType Name="RodzajePlatnosci">
           <Key>
@@ -1116,8 +1132,7 @@
           <Property Name="IdProjektu" Type="Int32" />
           <Property Name="IdZadania" Type="Int32" />
           <Property Name="IdKlienta" Type="Int32" />
-          <NavigationProperty Name="Klienci" Relationship="Self.FK_Klienci_Zespoly" FromRole="Zespoly" ToRole="Klienci" />
-          <NavigationProperty Name="Klienci1" Relationship="Self.FK_Zespoly_Klienci" FromRole="Zespoly" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK_Zespoly_Klienci" FromRole="Zespoly" ToRole="Klienci" />
           <NavigationProperty Name="Projekty" Relationship="Self.FK_Projekty_Zespoly" FromRole="Zespoly" ToRole="Projekty" />
           <NavigationProperty Name="Projekty1" Relationship="Self.FK_Zespoly_Projekty" FromRole="Zespoly" ToRole="Projekty" />
           <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_Uzytkownicy_Zespoly" FromRole="Zespoly" ToRole="Uzytkownicy" />
@@ -1128,6 +1143,8 @@
           <NavigationProperty Name="Uzytkownicy5" Relationship="Self.FK_Zespoly_Uzytkownicy4" FromRole="Zespoly" ToRole="Uzytkownicy" />
           <NavigationProperty Name="Zadania" Relationship="Self.FK_Zadania_Zespoly" FromRole="Zespoly" ToRole="Zadania" />
           <NavigationProperty Name="Zadania1" Relationship="Self.FK_Zespoly_Zadania" FromRole="Zespoly" ToRole="Zadania" />
+          <NavigationProperty Name="Klienci1" Relationship="BazaCRMModel.FK_Klienci_Zespoly" FromRole="Zespoly" ToRole="Klienci" />
+          <NavigationProperty Name="Klienci2" Relationship="BazaCRMModel.FK_Zespoly_Klienci1" FromRole="Zespoly" ToRole="Klienci" />
         </EntityType>
         <Association Name="FK_Faktury_Klienci">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
@@ -1225,18 +1242,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Klienci_Zespoly">
-          <End Role="Zespoly" Type="Self.Zespoly" Multiplicity="0..1" />
-          <End Role="Klienci" Type="Self.Klienci" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zespoly">
-              <PropertyRef Name="IdZespolu" />
-            </Principal>
-            <Dependent Role="Klienci">
-              <PropertyRef Name="IdZespolu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Projekty_Klienci">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
           <End Role="Projekty" Type="Self.Projekty" Multiplicity="*" />
@@ -1249,7 +1254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci2">
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
           <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1261,7 +1266,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RelacjeMiedzyKlientami_Klienci3">
+        <Association Name="FK_RelacjeMiedzyKlientami_Klienci1">
           <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
           <End Role="RelacjeMiedzyKlientami" Type="Self.RelacjeMiedzyKlientami" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1497,7 +1502,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika1" />
+              <PropertyRef Name="IdUzytkownikaLider" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1509,7 +1514,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika2" />
+              <PropertyRef Name="IdUzytkownika1" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1521,7 +1526,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika3" />
+              <PropertyRef Name="IdUzytkownika2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1533,7 +1538,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownika4" />
+              <PropertyRef Name="IdUzytkownika3" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1545,7 +1550,7 @@
               <PropertyRef Name="IdUzytkownika" />
             </Principal>
             <Dependent Role="Zespoly">
-              <PropertyRef Name="IdUzytkownikaLider" />
+              <PropertyRef Name="IdUzytkownika4" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1625,19 +1630,15 @@
             <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
             <End Role="Klienci" EntitySet="Klienci" />
           </AssociationSet>
-          <AssociationSet Name="FK_Klienci_Zespoly" Association="Self.FK_Klienci_Zespoly">
-            <End Role="Zespoly" EntitySet="Zespoly" />
-            <End Role="Klienci" EntitySet="Klienci" />
-          </AssociationSet>
           <AssociationSet Name="FK_Projekty_Klienci" Association="Self.FK_Projekty_Klienci">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Projekty" EntitySet="Projekty" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci2" Association="Self.FK_RelacjeMiedzyKlientami_Klienci2">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci" Association="Self.FK_RelacjeMiedzyKlientami_Klienci">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
-          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci3" Association="Self.FK_RelacjeMiedzyKlientami_Klienci3">
+          <AssociationSet Name="FK_RelacjeMiedzyKlientami_Klienci1" Association="Self.FK_RelacjeMiedzyKlientami_Klienci1">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="RelacjeMiedzyKlientami" EntitySet="RelacjeMiedzyKlientami" />
           </AssociationSet>
@@ -1741,7 +1742,39 @@
             <End Role="Zadania" EntitySet="Zadania" />
             <End Role="Zespoly" EntitySet="Zespoly" />
           </AssociationSet>
+          <AssociationSet Name="FK_Klienci_Zespoly" Association="BazaCRMModel.FK_Klienci_Zespoly">
+            <End Role="Zespoly" EntitySet="Zespoly" />
+            <End Role="Klienci" EntitySet="Klienci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zespoly_Klienci1" Association="BazaCRMModel.FK_Zespoly_Klienci1">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Zespoly" EntitySet="Zespoly" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Klienci_Zespoly">
+          <End Type="BazaCRMModel.Zespoly" Role="Zespoly" Multiplicity="0..1" />
+          <End Type="BazaCRMModel.Klienci" Role="Klienci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zespoly">
+              <PropertyRef Name="IdZespolu" />
+            </Principal>
+            <Dependent Role="Klienci">
+              <PropertyRef Name="IdZespolu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zespoly_Klienci1">
+          <End Type="BazaCRMModel.Klienci" Role="Klienci" Multiplicity="1" />
+          <End Type="BazaCRMModel.Zespoly" Role="Zespoly" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Zespoly">
+              <PropertyRef Name="IdZespolu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

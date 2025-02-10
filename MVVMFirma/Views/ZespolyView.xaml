@@ -29,14 +29,9 @@
                 <DataGridTextColumn Header="Pracownik 3 Nazwisko" Binding="{Binding Uzytkownicy3Nazwisko}"/>
                 <DataGridTextColumn Header="Pracownik 4 Imie" Binding="{Binding Uzytkownicy4Imie}"/>
                 <DataGridTextColumn Header="Pracownik 4 Nazwisko" Binding="{Binding Uzytkownicy4Nazwisko}"/>
-                <DataGridTextColumn Header="Pracownik 5 Imie" Binding="{Binding Uzytkownicy5Imie}"/>
-                <DataGridTextColumn Header="Pracownik 5 Nazwisko" Binding="{Binding Uzytkownicy5Nazwisko}"/>
-                <DataGridTextColumn Header="Projekt #1" Binding="{Binding ProjektyNazwaProjektu}"/>
-                <DataGridTextColumn Header="Projekt #2" Binding="{Binding Projekty1NazwaProjektu}"/>
-                <DataGridTextColumn Header="Klient #1" Binding="{Binding KlienciNazwaFirmy}"/>
-                <DataGridTextColumn Header="Klient #2" Binding="{Binding Klienci1NazwaFirmy}"/>
-                <DataGridTextColumn Header="Zadanie #1" Binding="{Binding ZadaniaNazwaZadania}"/>
-                <DataGridTextColumn Header="Zadanie #2" Binding="{Binding Zadania1NazwaZadania}"/>
+                <DataGridTextColumn Header="Projekt" Binding="{Binding ProjektyNazwaProjektu}"/>
+                <DataGridTextColumn Header="Klient" Binding="{Binding KlienciNazwaFirmy}"/>
+                <DataGridTextColumn Header="Zadanie" Binding="{Binding ZadaniaNazwaZadania}"/>
             </DataGrid.Columns>
 
         </DataGrid>

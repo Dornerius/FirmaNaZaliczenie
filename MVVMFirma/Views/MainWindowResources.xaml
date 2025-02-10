@@ -69,8 +69,8 @@
             <Setter.Value>
                 <DataTemplate>
                     <Border 
-            Background="Blue" 
-            BorderBrush="LightGray" 
+            Background="Gray" 
+            BorderBrush="Gold" 
             BorderThickness="1" 
             CornerRadius="5" 
             Margin="4" 
@@ -131,18 +131,18 @@
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Margin="2,6">
+                    <TextBlock Margin="0.5,2">
             <Button Command="{Binding Path=Command}"
         Foreground="White"
-        Background="Blue"
-        Margin="0,2,0,2"
-        FontSize="12"
+        Background="PowderBlue"
+        Margin="0,0,0,0"
+        FontSize="10"
         FontWeight="Bold"
         Height="25"
         Width="135" 
         RenderTransformOrigin="0.5,0.5">
-    <Button.Effect>
-        <DropShadowEffect/>
+    <Button.Effect>       
+        <DropShadowEffect ShadowDepth="9" BlurRadius="12" Color="LightBlue" />
     </Button.Effect>
     <Button.RenderTransform>
         <TransformGroup>

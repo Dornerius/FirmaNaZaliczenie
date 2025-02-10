@@ -6,8 +6,11 @@
              xmlns:local="clr-namespace:MVVMFirma.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid >
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+    <Grid >       
+                        
+        
+          
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" Margin="-32,46,32,-46">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#bdc3c7"/>
@@ -23,6 +26,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-
+        
     </Grid>
 </local:WszystkieViewBase>
+    

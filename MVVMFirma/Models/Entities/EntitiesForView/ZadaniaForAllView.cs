@@ -12,11 +12,8 @@ namespace MVVMFirma.Models.Entities.EntitiesForView
         public string NazwaZadania { get; set; }
         public string OpisZadania { get; set; }
         public string ZespolyNazwa { get; set; }
-        public string Zespoly1Nazwa { get; set; }
         public string UzytkownicyImie { get; set; }
         public string UzytkownicyNazwisko { get; set; } 
-        public string Uzytkownicy1Imie { get; set; } 
-        public string Uzytkownicy1Nazwisko { get; set; } 
         public string StatusyNazwaStatusu { get; set; }
         
     }

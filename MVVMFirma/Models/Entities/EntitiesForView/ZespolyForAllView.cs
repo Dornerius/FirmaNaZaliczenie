@@ -18,17 +18,13 @@ namespace MVVMFirma.Models.Entities.EntitiesForView
         public string Uzytkownicy2Imie { get; set; }
         public string Uzytkownicy2Nazwisko { get; set; }
         public string Uzytkownicy3Imie { get; set; }
-        public string Uzytkownicy3Nazwisko { get; set;}
+        public string Uzytkownicy3Nazwisko { get; set; }
         public string Uzytkownicy4Imie { get; set; }
         public string Uzytkownicy4Nazwisko { get; set; }
-        public string Uzytkownicy5Imie { get; set; }
-        public string Uzytkownicy5Nazwisko { get; set; }
         public string ProjektyNazwaProjektu { get; set; }
-        public string Projekty1NazwaProjektu { get; set; }
-        public string KlienciNazwaFirmy { get; set; }
-        public string Klienci1NazwaFirmy { get; set; }
+        public string KlienciNazwaFirmy { get; set; }       
         public string ZadaniaNazwaZadania { get; set; }
-        public string Zadania1NazwaZadania { get; set; }
+       
 
     }
 }

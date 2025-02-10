@@ -42,7 +42,7 @@ namespace MVVMFirma.ViewModels
                         UzytkownicyImie = klienci.Uzytkownicy.Imie,
                         UzytkownicyNazwisko = klienci.Uzytkownicy.Nazwisko,
                         UzytkownicyRola = klienci.Uzytkownicy.Rola,
-                        ZespolyNazwa = klienci.Zespoly.Nazwa,
+                        ZespolyNazwa = klienci.Zespoly1.Nazwa,
                         ProjektyNazwaProjektu = klienci.Projekty.NazwaProjektu
                     }
 

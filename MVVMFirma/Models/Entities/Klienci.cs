@@ -25,7 +25,7 @@ namespace MVVMFirma.Models.Entities
             this.Transakcje = new HashSet<Transakcje>();
             this.Uzytkownicy1 = new HashSet<Uzytkownicy>();
             this.ZapytaniaKlientow = new HashSet<ZapytaniaKlientow>();
-            this.Zespoly1 = new HashSet<Zespoly>();
+            this.Zespoly = new HashSet<Zespoly>();
         }
     
         public int IdKlienta { get; set; }
@@ -56,7 +56,6 @@ namespace MVVMFirma.Models.Entities
         public virtual ICollection<InterakcjeKlientow> InterakcjeKlientow { get; set; }
         public virtual Projekty Projekty { get; set; }
         public virtual Uzytkownicy Uzytkownicy { get; set; }
-        public virtual Zespoly Zespoly { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Projekty> Projekty1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -70,6 +69,8 @@ namespace MVVMFirma.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ZapytaniaKlientow> ZapytaniaKlientow { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zespoly> Zespoly1 { get; set; }
+        public virtual ICollection<Zespoly> Zespoly { get; set; }
+        public virtual Zespoly Zespoly1 { get; set; }
+        public virtual Zespoly Zespoly2 { get; set; }
     }
 }
