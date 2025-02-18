@@ -10,10 +10,10 @@
                         
         
           
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" Margin="-32,46,32,-46">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#bdc3c7"/>
+                    <Setter Property="Background" Value="#bcd0e5"/>
                     <Setter Property="Margin" Value="6,0,6,0" />
                     <Setter Property="FontSize" Value="14"/>
                 </Style>

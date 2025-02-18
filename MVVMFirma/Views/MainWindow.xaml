@@ -5,14 +5,14 @@
         xmlns:vm="clr-namespace:MVVMFirma.Views"
         >
     <Window.Resources>
-        
+
         <ResourceDictionary Source="MainWindowResources.xaml"  />
-        
+
     </Window.Resources>
-    <Grid>
+    <Grid Background="#bcd0e5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="174"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -20,7 +20,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2">
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2,2,2,2">
             <MenuItem Header="_Plik"/>
             <MenuItem Header="_Magazyn">
                 <MenuItem Header="Klienci"/>
@@ -30,12 +30,11 @@
             </MenuItem>
             <MenuItem Header="Program"/>
         </Menu>
-        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">              
+        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2,2,2,2">
         </ToolBar>
         <Border Grid.Row="2" Grid.Column="0">
             <HeaderedContentControl 
-                Header="Operacje" 
-                Background="Aqua" 
+                Header="Operacje"               
                 Content="{Binding Path=Commands}" 
                 ContentTemplate="{StaticResource CommandsTemplate}"
                 Style="{StaticResource MainHCCStyle}"
@@ -49,14 +48,6 @@
                 Style="{StaticResource MainHCCStyle}"
             />
         </Border>
-        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
-            <StatusBarItem>
-                <TextBlock>Artur Kornatka</TextBlock>
-            </StatusBarItem>
-            <Separator/>
-            <StatusBarItem>
-                <TextBlock>WSB-NLU</TextBlock>
-            </StatusBarItem>
-        </StatusBar>
+        
     </Grid>
 </Window>

@@ -69,8 +69,8 @@
             <Setter.Value>
                 <DataTemplate>
                     <Border 
-            Background="Gray" 
-            BorderBrush="Gold" 
+            Background="#19868f" 
+            BorderBrush="#244e81" 
             BorderThickness="1" 
             CornerRadius="5" 
             Margin="4" 
@@ -127,22 +127,26 @@
   This template explains how to render the list of commands on the left
   side in the main window (the 'Control Panel' area).
   -->
-    <DataTemplate x:Key="CommandsTemplate">
-        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+    <DataTemplate x:Key="CommandsTemplate"><ScrollViewer>
+
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2" Background="#bcd0e5"> 
+            
             <ItemsControl.ItemTemplate>
-                <DataTemplate>
+                
+                   <DataTemplate>
                     <TextBlock Margin="0.5,2">
+                                                   
             <Button Command="{Binding Path=Command}"
-        Foreground="White"
-        Background="PowderBlue"
-        Margin="0,0,0,0"
-        FontSize="10"
+        Foreground="white"
+        Background="#19868f"
+        Margin="0,2,0,2"
+        FontSize="12"
         FontWeight="Bold"
-        Height="25"
+        Height="30"
         Width="135" 
         RenderTransformOrigin="0.5,0.5">
     <Button.Effect>       
-        <DropShadowEffect ShadowDepth="9" BlurRadius="12" Color="LightBlue" />
+        <DropShadowEffect ShadowDepth="9" BlurRadius="12" Color="#244e81" />
     </Button.Effect>
     <Button.RenderTransform>
         <TransformGroup>
@@ -153,12 +157,23 @@
         </TransformGroup>
     </Button.RenderTransform>
     <TextBlock Text="{Binding Path=DisplayName}" />
+     <Button.Style>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="DarkBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Button.Style>           
 </Button>
           </TextBlock>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
+           
         </ItemsControl>
-    </DataTemplate>
+        
+    </ScrollViewer> </DataTemplate>
 
     <!-- 
   This template explains how to render 

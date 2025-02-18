@@ -24,5 +24,20 @@ namespace MVVMFirma.Views
         {
             InitializeComponent();
         }
+
+        private void RowDefinition_DpiChanged(object sender, DpiChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
