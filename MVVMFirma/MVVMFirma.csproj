@@ -283,6 +283,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\BusinessLogic\DataBaseClass.cs" />
+    <Compile Include="Models\BusinessLogic\ProduktB.cs" />
+    <Compile Include="Models\BusinessLogic\SprzedazB.cs" />
+    <Compile Include="Models\BusinessLogic\StatusB.cs" />
     <Compile Include="Models\Entities\BazaCRMModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,6 +303,7 @@
       <DependentUpon>BazaCRMModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\EntitiesForView\FakturaForAllView.cs" />
+    <Compile Include="Models\Entities\EntitiesForView\KeyAndValue.cs" />
     <Compile Include="Models\Entities\EntitiesForView\KlienciForAllView.cs" />
     <Compile Include="Models\Entities\EntitiesForView\ProjektyForAllView.cs" />
     <Compile Include="Models\Entities\EntitiesForView\RealcjeMiedzyKlientamiForAllView.cs" />
@@ -374,6 +379,7 @@
     <Compile Include="ViewModels\NowyUzytkownikViewModel.cs" />
     <Compile Include="ViewModels\ProduktyUslugiViewModel.cs" />
     <Compile Include="ViewModels\ProjektyViewModel.cs" />
+    <Compile Include="ViewModels\RaportZamowienViewModel.cs" />
     <Compile Include="ViewModels\RelacjeMiedzyKlientamiViewModel.cs" />
     <Compile Include="ViewModels\RodzajePlatnosciViewModel.cs" />
     <Compile Include="ViewModels\StatusFakturyViewModel.cs" />
@@ -423,6 +429,9 @@
     </Compile>
     <Compile Include="Views\RalacjeMiedzyKlientamiView.xaml.cs">
       <DependentUpon>RalacjeMiedzyKlientamiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RaportZamowienView.xaml.cs">
+      <DependentUpon>RaportZamowienView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RodzajePlatnosciView.xaml.cs">
       <DependentUpon>RodzajePlatnosciView.xaml</DependentUpon>
@@ -538,6 +547,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RalacjeMiedzyKlientamiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RaportZamowienView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

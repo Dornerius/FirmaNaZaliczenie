@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Data;
+using MVVMFirma.Views;
 
 namespace MVVMFirma.ViewModels
 {
@@ -45,7 +46,7 @@ namespace MVVMFirma.ViewModels
                     new BaseCommand(() => this.CreateKlient())),
 
                  new CommandViewModel(
-                    "Zapytania Klientó",
+                    "Zapytania Klientów",
                     new BaseCommand(() => this.ShowAllZapytaniaKlientow())),
 
                 new CommandViewModel(
@@ -114,6 +115,11 @@ namespace MVVMFirma.ViewModels
                    new CommandViewModel(
                     "Zespoły",
                     new BaseCommand(() => this.ShowAllZespoly())),
+
+                   new CommandViewModel(
+                    "Raport Zamówień",
+                    new BaseCommand(() => this.CreateView(new RaportZamowienViewModel())))
+
             };
         }
 
@@ -152,6 +158,12 @@ namespace MVVMFirma.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
+
+        private void CreateView(WorkspaceViewModel nowy)
+        {
+            this.Workspaces.Add(nowy);
+            this.SetActiveWorkspace(nowy);
+        }
         private void CreateKlient()
         {
             NowyKlientViewModel workspace = new NowyKlientViewModel();
@@ -178,8 +190,9 @@ namespace MVVMFirma.ViewModels
             NowyProduktUslugaViewModel workspace = new NowyProduktUslugaViewModel();
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
-        }
-        
+        }        
+
+
         private void ShowAllKlienci()
         {
             if (!(this.Workspaces.FirstOrDefault(vm => vm is KlienciViewModel) is KlienciViewModel workspace))

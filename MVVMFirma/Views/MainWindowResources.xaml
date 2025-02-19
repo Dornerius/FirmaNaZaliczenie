@@ -64,6 +64,10 @@
     <DataTemplate DataType="{x:Type vm:ZespolyViewModel}">
         <vw:ZespolyView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:RaportZamowienViewModel}">
+        <vw:RaportZamowienView/>
+    </DataTemplate>
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
             <Setter.Value>
@@ -127,7 +131,8 @@
   This template explains how to render the list of commands on the left
   side in the main window (the 'Control Panel' area).
   -->
-    <DataTemplate x:Key="CommandsTemplate"><ScrollViewer>
+    <DataTemplate x:Key="CommandsTemplate">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
 
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2" Background="#bcd0e5"> 
             
