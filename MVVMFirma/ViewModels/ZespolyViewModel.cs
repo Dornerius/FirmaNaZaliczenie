@@ -20,7 +20,66 @@ namespace MVVMFirma.ViewModels
         { }
 
         #endregion
+        #region Sort and find
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Nazwa", "Opis", "Uzytkownik", "Uzytkownik1", "Uzytkownik2", "Uzytkownik3", "Uzytkownik4", "Projekt", "Klient", "Zadanie" };
+        }
 
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.Nazwa));
+            if (SortField == "Opis")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.Opis));
+            if (SortField == "Uzytkownik")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.UzytkownicyImie));
+            if (SortField == "Uzytkownik1")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.Uzytkownicy1Imie));
+            if (SortField == "Uzytkownik2")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.Uzytkownicy2Imie));
+            if (SortField == "Uzytkownik3")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.Uzytkownicy3Imie));
+            if (SortField == "Uzytkownik4")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.Uzytkownicy4Imie));
+            if (SortField == "Projekt")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.ProjektyNazwaProjektu));
+            if (SortField == "Klient")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.KlienciNazwaFirmy));
+            if (SortField == "Zadanie")
+                List = new ObservableCollection<ZespolyForAllView>(List.OrderBy(item => item.ZadaniaNazwaZadania));
+        }
+
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Nazwa", "Opis", "Uzytkownik", "Uzytkownik1", "Uzytkownik2", "Uzytkownik3", "Uzytkownik4", "Projekt", "Klient", "Zadanie" };
+        }
+        public override void Find()
+        {
+            if (FindField == "Nazwa")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.Nazwa != null && item.Nazwa.StartsWith(FindTextBox)));
+            if (FindField == "Opis")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.Opis != null && item.Opis.StartsWith(FindTextBox)));
+            if (FindField == "Uzytkownik")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.UzytkownicyImie != null && item.UzytkownicyImie.StartsWith(FindTextBox)));
+            if (FindField == "Uzytkownik1")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.Uzytkownicy1Imie != null && item.Uzytkownicy1Imie.StartsWith(FindTextBox)));
+            if (FindField == "Uzytkownik2")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.Uzytkownicy2Imie != null && item.Uzytkownicy2Imie.StartsWith(FindTextBox)));
+            if (FindField == "Uzytkownik3")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.Uzytkownicy3Imie != null && item.Uzytkownicy3Imie.StartsWith(FindTextBox)));
+            if (FindField == "Uzytkownik4")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.Uzytkownicy4Imie != null && item.Uzytkownicy4Imie.StartsWith(FindTextBox)));
+            if (FindField == "Projekt")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.ProjektyNazwaProjektu != null && item.ProjektyNazwaProjektu.StartsWith(FindTextBox)));
+            if (FindField == "Klient")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.KlienciNazwaFirmy != null && item.KlienciNazwaFirmy.StartsWith(FindTextBox)));
+            if (FindField == "Zadanie")
+                List = new ObservableCollection<ZespolyForAllView>(List.Where(item => item.ZadaniaNazwaZadania != null && item.ZadaniaNazwaZadania.StartsWith(FindTextBox)));
+            
+        }
+
+        #endregion
         #region Helpers
         public override void Load()
         {

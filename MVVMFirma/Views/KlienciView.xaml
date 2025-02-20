@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Klienci" FontSize="24" FontWeight="Bold" Margin="4"/>
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}">         
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding Path=WybranyKlient, Mode=TwoWay}">         
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nazwa firmy" Binding="{Binding NazwaFirmy}"/>

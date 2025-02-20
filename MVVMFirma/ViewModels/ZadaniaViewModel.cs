@@ -20,7 +20,45 @@ namespace MVVMFirma.ViewModels
         { }
 
         #endregion
+        #region Sort and find
+        public override List<string> GetComboBoxSortList()
+        {
+            return new List<string> { "Nazwa", "Opis", "Zespół", "Użytkownik", "Status" };
+        }
 
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+                List = new ObservableCollection<ZadaniaForAllView>(List.OrderBy(item => item.NazwaZadania));
+            if (SortField == "Opis")
+                List = new ObservableCollection<ZadaniaForAllView>(List.OrderBy(item => item.OpisZadania));
+            if (SortField == "Zespół")
+                List = new ObservableCollection<ZadaniaForAllView>(List.OrderBy(item => item.ZespolyNazwa));
+            if (SortField == "Użytkownik")
+                List = new ObservableCollection<ZadaniaForAllView>(List.OrderBy(item => item.UzytkownicyImie));
+            if (SortField == "Status")
+                List = new ObservableCollection<ZadaniaForAllView>(List.OrderBy(item => item.StatusyNazwaStatusu));
+        }
+
+        public override List<string> GetComboBoxFindList()
+        {
+            return new List<string> { "Nazwa", "Opis", "Zespół", "Użytkownik", "Status" };
+        }
+        public override void Find()
+        {
+            if (FindField == "Nazwa")
+                List = new ObservableCollection<ZadaniaForAllView>(List.Where(item => item.NazwaZadania != null && item.NazwaZadania.StartsWith(FindTextBox)));
+            if (FindField == "Opis")
+                List = new ObservableCollection<ZadaniaForAllView>(List.Where(item => item.OpisZadania != null && item.OpisZadania.StartsWith(FindTextBox)));
+            if (FindField == "Zespół")
+                List = new ObservableCollection<ZadaniaForAllView>(List.Where(item => item.ZespolyNazwa != null && item.ZespolyNazwa.StartsWith(FindTextBox)));
+            if (FindField == "Użytkownik")
+                List = new ObservableCollection<ZadaniaForAllView>(List.Where(item => item.UzytkownicyImie != null && item.UzytkownicyImie.StartsWith(FindTextBox)));
+            if (FindField == "Status")
+                List = new ObservableCollection<ZadaniaForAllView>(List.Where(item => item.StatusyNazwaStatusu != null && item.StatusyNazwaStatusu.StartsWith(FindTextBox)));
+        }
+
+        #endregion
         #region Helpers
         public override void Load()
         {

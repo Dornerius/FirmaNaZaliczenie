@@ -19,7 +19,27 @@ namespace MVVMFirma.ViewModels
         { }
 
         #endregion
+        #region Sort and find
+        public override List<string> GetComboBoxSortList()
+        {
+            return null;
+        }
 
+        public override void Sort()
+        {
+
+        }
+
+        public override List<string> GetComboBoxFindList()
+        {
+            return null;
+        }
+        public override void Find()
+        {
+
+        }
+
+        #endregion
         #region Helpers
         public override void Load()
         {

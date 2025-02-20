@@ -7,67 +7,99 @@
     <DataTemplate DataType="{x:Type vm:KlienciViewModel}">
         <vw:KlienciView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:NowyKlientViewModel}">
         <vw:NowyKlientView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:FakturyViewModel}">
         <vw:FakturyView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:NowaFakturaViewModel}">
         <vw:NawaFakturaView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:UzytkownicyViewModel}">
         <vw:UzytkownicyView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:NowyUzytkownikViewModel}">
         <vw:NowyUzytkownikView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:ProduktyUslugiViewModel}">
         <vw:ProduktyUslugiView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:NowyProduktUslugaViewModel}">
         <vw:NowyProduktUsluga/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:TypyInterakcjiViewModel}">
         <vw:TypyInterakcjiView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:ProjektyViewModel}">
         <vw:ProjektyView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:StatusyViewModel}">
         <vw:StatusyView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:RelacjeMiedzyKlientamiViewModel}">
         <vw:RalacjeMiedzyKlientamiView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:RodzajePlatnosciViewModel}">
         <vw:RodzajePlatnosciView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:StatusFakturyViewModel}">
         <vw:StatusFakturyView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:SzkoleniaViewModel}">
         <vw:SzkoleniaView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:TransakcjeViewModel}">
         <vw:TransakcjeView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:ZadaniaViewModel}">
         <vw:ZadaniaView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:ZamowieniaViewModel}">
         <vw:ZamowieniaView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:ZapytaniaKlientowViewModel}">
         <vw:ZapytaniaKlientowView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:ZespolyViewModel}">
         <vw:ZespolyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:InterakcjeKlientowViewModel}">
+        <vw:InterakcjeKlientowView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:RaportZamowienViewModel}">
         <vw:RaportZamowienView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:RaportKlientowViewModel}">
+        <vw:RaportKlientowView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:RaportFakturViewModel}">
+        <vw:RaportFakturView/>
+    </DataTemplate>
+
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
             <Setter.Value>

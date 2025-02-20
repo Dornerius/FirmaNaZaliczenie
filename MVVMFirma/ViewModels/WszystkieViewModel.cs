@@ -1,4 +1,5 @@
-﻿using MVVMFirma.Helper;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper;
 using MVVMFirma.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace MVVMFirma.ViewModels
 
         #endregion
 
-        #region LoadCommand
+        #region Command
         private BaseCommand _LoadCommand;
         public ICommand LoadCommand
         {
@@ -26,6 +27,16 @@ namespace MVVMFirma.ViewModels
                 if (_LoadCommand == null)
                     _LoadCommand = new BaseCommand(() => Load());
                 return _LoadCommand;
+            }
+        }
+        private BaseCommand _AddCommand;
+        public ICommand AddCommand
+        {
+            get
+            {
+                if (_AddCommand == null)
+                    _AddCommand = new BaseCommand(() => add());
+                return _AddCommand;
             }
         }
         #endregion
@@ -57,9 +68,63 @@ namespace MVVMFirma.ViewModels
         }
 
         #endregion
+        #region Sort and Find
+        #region Sort
+        public string SortField { get; set; }
+        public List<String> SortComboboxItems
+        {
+            get
+            {
+                return GetComboBoxSortList();
+            }
 
+        }
+        public abstract List<String> GetComboBoxSortList();
+        private BaseCommand _SortCommand;
+        public ICommand SortCommand
+        {
+            get
+            {
+                if (_SortCommand == null)
+                    _SortCommand = new BaseCommand(() => Sort());
+                return _SortCommand;
+            }
+        }
+        public abstract void Sort();
+
+        #endregion
+        #region Find
+        public string FindField { get; set; }
+        public List<String> FindComboboxItems
+
+        {
+            get
+            {
+                return GetComboBoxFindList();
+            }
+        }
+        public abstract List<String> GetComboBoxFindList();
+        public string FindTextBox { get; set; }
+        private BaseCommand _FindCommand;
+        public ICommand FindCommand
+        {
+            get
+            {
+                if (_FindCommand == null)
+                    _FindCommand = new BaseCommand(() => Find());
+                return _FindCommand;
+            }
+        }
+        public abstract void Find();
+
+        #endregion
+        #endregion
         #region Helpers
         public abstract void Load();
+        private void add()
+        {
+            Messenger.Default.Send(DisplayName + "Add");
+        }
         #endregion
     }
 }

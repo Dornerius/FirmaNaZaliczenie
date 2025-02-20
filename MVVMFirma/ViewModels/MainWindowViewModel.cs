@@ -9,6 +9,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Data;
 using MVVMFirma.Views;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace MVVMFirma.ViewModels
 {
@@ -33,7 +34,9 @@ namespace MVVMFirma.ViewModels
             }
         }
         private List<CommandViewModel> CreateCommands()
+
         {
+            Messenger.Default.Register<String>(this, open);
             return new List<CommandViewModel>
             {
 
@@ -43,11 +46,15 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Nowy klient",
-                    new BaseCommand(() => this.CreateKlient())),
+                    new BaseCommand(() => this.CreateView(new NowyKlientViewModel()))),
 
                  new CommandViewModel(
                     "Zapytania Klientów",
                     new BaseCommand(() => this.ShowAllZapytaniaKlientow())),
+
+                 new CommandViewModel(
+                    "Interakcje Klientow",
+                    new BaseCommand(() => this.ShowAllInterakcjeKlientow())),
 
                 new CommandViewModel(
                     "Użytkownicy",
@@ -55,7 +62,7 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Nowy użytkownik",
-                    new BaseCommand(() => this.CreateUzytkownik())),
+                    new BaseCommand(() => this.CreateView(new NowyUzytkownikViewModel()))),
 
                 new CommandViewModel(
                     "Faktury",
@@ -63,7 +70,7 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Nowa faktura",
-                    new BaseCommand(() => this.CreateFaktura())),
+                    new BaseCommand(() => this.CreateView(new NowaFakturaViewModel()))),
 
                 new CommandViewModel(
                     "Produkty i usługi",
@@ -71,7 +78,7 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Nowy produkt",
-                    new BaseCommand(() => this.CreateProduktUsluga())),
+                    new BaseCommand(() => this.CreateView(new NowyProduktUslugaViewModel()))),
 
                 new CommandViewModel(
                     "Rodzaje Interakcji",
@@ -118,7 +125,15 @@ namespace MVVMFirma.ViewModels
 
                    new CommandViewModel(
                     "Raport Zamówień",
-                    new BaseCommand(() => this.CreateView(new RaportZamowienViewModel())))
+                    new BaseCommand(() => this.CreateView(new RaportZamowienViewModel()))),
+
+                    new CommandViewModel(
+                    "Raport Pracowniczy",
+                    new BaseCommand(() => this.CreateView(new RaportKlientowViewModel()))),
+
+                     new CommandViewModel(
+                    "Raport statusów faktur",
+                    new BaseCommand(() => this.CreateView(new RaportFakturViewModel())))
 
             };
         }
@@ -164,33 +179,33 @@ namespace MVVMFirma.ViewModels
             this.Workspaces.Add(nowy);
             this.SetActiveWorkspace(nowy);
         }
-        private void CreateKlient()
-        {
-            NowyKlientViewModel workspace = new NowyKlientViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
+        //private void CreateKlient()
+        //{
+        //    NowyKlientViewModel workspace = new NowyKlientViewModel();
+        //    this.Workspaces.Add(workspace);
+        //    this.SetActiveWorkspace(workspace);
+        //}
 
-        private void CreateUzytkownik()
-        {
-            NowyUzytkownikViewModel workspace = new NowyUzytkownikViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
+        //private void CreateUzytkownik()
+        //{
+        //    NowyUzytkownikViewModel workspace = new NowyUzytkownikViewModel();
+        //    this.Workspaces.Add(workspace);
+        //    this.SetActiveWorkspace(workspace);
+        //}
 
-        private void CreateFaktura()
-        {
-           NowaFakturaViewModel workspace = new NowaFakturaViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        } 
-        
-        private void CreateProduktUsluga()
-        {
-            NowyProduktUslugaViewModel workspace = new NowyProduktUslugaViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }        
+        //private void CreateFaktura()
+        //{
+        //   NowaFakturaViewModel workspace = new NowaFakturaViewModel();
+        //    this.Workspaces.Add(workspace);
+        //    this.SetActiveWorkspace(workspace);
+        //} 
+
+        //private void CreateProduktUsluga()
+        //{
+        //    NowyProduktUslugaViewModel workspace = new NowyProduktUslugaViewModel();
+        //    this.Workspaces.Add(workspace);
+        //    this.SetActiveWorkspace(workspace);
+
 
 
         private void ShowAllKlienci()
@@ -198,6 +213,18 @@ namespace MVVMFirma.ViewModels
             if (!(this.Workspaces.FirstOrDefault(vm => vm is KlienciViewModel) is KlienciViewModel workspace))
             {
                 workspace = new KlienciViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+
+        }
+
+        private void ShowAllInterakcjeKlientow ()
+        {
+            if (!(this.Workspaces.FirstOrDefault(vm => vm is InterakcjeKlientowViewModel) is InterakcjeKlientowViewModel workspace))
+            {
+                workspace = new InterakcjeKlientowViewModel();
                 this.Workspaces.Add(workspace);
             }
 
@@ -248,9 +275,9 @@ namespace MVVMFirma.ViewModels
 
         private void ShowAllStatusy()
         {
-                StatusyViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is StatusyViewModel)
-                as StatusyViewModel;
+            StatusyViewModel workspace =
+            this.Workspaces.FirstOrDefault(vm => vm is StatusyViewModel)
+            as StatusyViewModel;
             if (workspace == null)
             {
                 workspace = new StatusyViewModel();
@@ -418,6 +445,29 @@ namespace MVVMFirma.ViewModels
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);
             collectionView?.MoveCurrentTo(workspace);
         }
-        #endregion
+        private void open(string name)
+        {
+            if (name == "KlienciAdd")
+            {
+                CreateView(new NowyKlientViewModel());
+            }
+            if (name == "FakturyAdd")
+            {
+                CreateView(new NowaFakturaViewModel());
+            }
+            if (name == "UzytkownicyAdd")
+            {
+                CreateView(new NowyUzytkownikViewModel());
+            }
+            if (name == "ProduktyUslugiAdd")
+            {
+                CreateView(new NowyProduktUslugaViewModel());
+            }
+            if (name == "KlienciAll")
+                ShowAllKlienci();
+
+
+            #endregion
+        }
     }
 }

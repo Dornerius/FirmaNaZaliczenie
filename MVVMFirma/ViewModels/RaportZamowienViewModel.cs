@@ -30,10 +30,7 @@ namespace MVVMFirma.ViewModels
         }
 
         #region Fields
-        private DateTime _DataOd;
-        private DateTime _DataDo;
-
-
+        private DateTime _DataOd;     
 
         public DateTime DataOd
         {
@@ -50,6 +47,7 @@ namespace MVVMFirma.ViewModels
                 }
             }
         }
+        private DateTime _DataDo;
         public DateTime DataDo
         {
             get

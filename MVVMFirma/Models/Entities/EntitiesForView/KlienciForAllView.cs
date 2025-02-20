@@ -8,7 +8,7 @@ namespace MVVMFirma.Models.Entities.EntitiesForView
 {
     public class KlienciForAllView
     {
-        
+        public int IdKlienta { get; set; }
         public string NazwaFirmy { get; set; }
         public string OsobowoscPrawna { get; set; }
         public string Email { get; set; }
